@@ -5,7 +5,7 @@
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: your_edvisor_api_key"
+  -H "Authorization: private_key=\"your_edvisor_api_key\""
 ```
 
 > Make sure to replace `your_edvisor_api_key` with your API key.
@@ -14,8 +14,11 @@ Edvisor.io uses API keys to allow access to the API. To access our API, please c
 
 Edvisor.io expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: your_edvisor_api_key`
+`Authorization: private_key="your_edvisor_api_key"`
 
 <aside class="notice">
 You must replace <code>your_edvisor_api_key</code> with your API key.
+</aside>
+<aside class="warning">
+It is your responsibility to not expose your Edvisor.io API key to the public. All requests to the Edvisor API should be made from your server and not a customer-facing front end.
 </aside>

@@ -3,8 +3,8 @@
 ## List all student statuses
 
 ```shell
-curl "https://api.edvisor.io/v1/student-status/list?filter={"where":{"agencyId":92}}"
-  -H "Authorization: your_edvisor_api_key"
+curl "https://app.edvisor.io/api/v1/student-status/list?filter={"where":{"agencyId":92}}"
+  -H "Authorization: private_key=\"your_edvisor_api_key\""
 ```
 
 > The above command returns JSON structured like this:
@@ -39,11 +39,11 @@ This endpoint will list all the student statuses.
 
 ### HTTP Request
 
-`GET https://api.edvisor.io/v1/student-status/list`
+`GET https://app.edvisor.io/api/v1/student-status/list`
 
 ### Example
 
-`GET https://api.edvisor.io/v1/student-status/list?filter={"where":{"agencyId":92}}`
+`GET https://app.edvisor.io/api/v1/student-status/list?filter={"where":{"agencyId":92}}`
 
 ### URL Parameters
 

@@ -3,8 +3,8 @@
 ## Create a student
 
 ```shell
-curl "https://api.edvisor.io/v1/student"
-  -H "Authorization: your_edvisor_api_key; Content-Type: application/json" 
+curl "https://app.edvisor.io/api/v1/student"
+  -H "Authorization: private_key=\"your_edvisor_api_key\"; Content-Type: application/json" 
   -X POST 
   -d '{}' //your json parameters
 ```
@@ -50,41 +50,49 @@ This endpoint will create a student.
 
 ### HTTP Request
 
-`POST https://api.edvisor.io/v1/student`
+`POST https://app.edvisor.io/api/v1/student`
 
 ### JSON Request Object
 
-Parameter | Required | Default | Description
---------- | -------- | ------- | -----------
-agencyId | Yes | | The ID of the office you want this student to belong to.
-ownerId | No | NULL | The ID of the user we want to assign the student to. If set to NULL, the student will be left as unassigned.
-nationalityId | No | NULL | The Country ID of the nationality of the student.
-firstname | Yes | | The first name of the student.
-lastname | No | NULL | The last name of the student.
-email | No | NULL | The email of the student. Note: You can only have one student with the same email in your company.
-phone | No | NULL | The phone number of the student.
-address | No | NULL | The address of your student.
-postalCode | No | NULL | The postal code of your student.
-gender | No | NULL | The gender of your student. Accepted values are 'M' or 'F'.
-birthdate | No | NULL | The birthdate of your student. Format must be YYYY-MM-DD.
-passportNumber | No | NULL | The passport number of the student.
-nationalIdNumber | No | NULL | The national ID number of the student.
-studentStatusId | No | The first stage in your student pipeline. | The Student Status ID to assign to your student.
-notes | No | NULL | Any notes you wish to keep with the student.
-accommodation | No | NULL | Accommodation goals for the student.
-budget | No | NULL | Budget information
-startMonth | No | NULL | The numerical value of the month the student wishes to start.
-startYear | No | NULL | The numerical value of the year the student wishes to start.
-startDay | No | NULL | The numerical value of the day the student wishes to start.
-studentMarketingChannelId | No | NULL | The Student Marketing Channel ID that describes the channel the student came in from.
-educationLevelId | No | NULL | The Education Level ID that describes what education level the student is currently at.
-englishLevelId | No | NULL | The English Level ID that describes what english level the student currently has.
-durationWeekAmount | No | NULL | The number of weeks the student wishes to study for.
-hoursPerWeek | No | NULL | The number of hours per week the student wishes to study for.
-amOrPm | No | NULL | Whether the student wants to study in the AM or PM.
-currentLocationGooglePlaceId | No | NULL | The Place ID provided by Google's <a href='https://developers.google.com/places/webservice/'>Places API</a>. This represents where the student is currently residing.
-isHighPriority | No | false | Whether the student should be marked as high priority.
-studentNumber | No | NULL | Any external student number that you wish to store with the student.
+Parameter | Required | Type | Default | Description
+--------- | -------- | ---- | ------- | -----------
+agencyId | Yes | Number | | The ID of the office you want this student to belong to.
+ownerId | No | Number | NULL | The ID of the user we want to assign the student to. If set to NULL, the student will be left as unassigned.
+nationalityId | No | Number | NULL | The Country ID of the nationality of the student.
+firstname | Yes | String | | The first name of the student.
+lastname | No | String | NULL | The last name of the student.
+email | No | String | NULL | The email of the student. Note: You can only have one student with the same email in your company.
+phone | No | String | NULL | The phone number of the student.
+address | No | String | NULL | The address of your student.
+postalCode | No | String | NULL | The postal code of your student.
+gender | No | String (M/F) | NULL | The gender of your student. Accepted values are 'M' or 'F'.
+birthdate | No | String (YYYY-MM-DD) | NULL | The birthdate of your student. Format must be YYYY-MM-DD.
+passportNumber | No | String | NULL | The passport number of the student.
+nationalIdNumber | No | String | NULL | The national ID number of the student.
+studentStatusId | No | Number | NULL | The first stage in your student pipeline. | The Student Status ID to assign to your student.
+notes | No | String | NULL | Any notes you wish to keep with the student.
+accommodation | No | String | NULL | Accommodation goals for the student.
+budget | No | String | NULL | Budget information
+startMonth | No | Number | NULL | The numerical value of the month the student wishes to start.
+startYear | No | Number | NULL | The numerical value of the year the student wishes to start.
+startDay | No | Number | NULL | The numerical value of the day the student wishes to start.
+studentMarketingChannelId | No | Number | NULL | The Student Marketing Channel ID that describes the channel the student came in from.
+educationLevelId | No | Number | NULL | The Education Level ID that describes what education level the student is currently at.
+englishLevelId | No | Number | NULL | The English Level ID that describes what english level the student currently has.
+durationWeekAmount | No | Number | NULL | The number of weeks the student wishes to study for.
+hoursPerWeek | No | Number | NULL | The number of hours per week the student wishes to study for.
+amOrPm | No | String (AM/PM) | NULL | Whether the student wants to study in the AM or PM.
+currentLocationGooglePlaceId | No | String | NULL | The Place ID provided by Google's <a href='https://developers.google.com/places/webservice/'>Places API</a>. This represents where the student is currently residing.
+isHighPriority | No | Boolean | false | Whether the student should be marked as high priority.
+studentNumber | No | String | NULL | Any external student number that you wish to store with the student.
+studentLocationPreferences | No | Object[] | NULL | An array of Google Place IDs which represent the locations that the student wishes to study in.
+studentLocationPreferences[].googlePlaceId | No | String | NULL | Google Place ID which represent the locations that the student wishes to study in.
+studentCoursePreferences | No | Object[] | NULL | An array of course names representing the courses that the student wishes to be enrolled in.
+studentCoursePreferences[].name | No | String | NULL | A course name representing the course that the student wishes to be enrolled in.
+studentSchoolPreferences | No | Object[] | NULL | An array of school names representing the schools that the student wishes to be enrolled in.
+studentSchoolPreferences[].name | No | String | NULL | A school name representing the school that the student wishes to be enrolled in.
+
+
 <!-- student_visa_type_id -->
 <!-- student_priority_id -->
 

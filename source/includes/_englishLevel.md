@@ -3,8 +3,8 @@
 ## List all english levels
 
 ```shell
-curl "https://api.edvisor.io/v1/english-level"
-  -H "Authorization: your_edvisor_api_key"
+curl "https://app.edvisor.io/api/v1/english-level"
+  -H "Authorization: private_key=\"your_edvisor_api_key\""
 ```
 
 > The above command returns JSON structured like this:
@@ -30,7 +30,7 @@ This endpoint will list all the english levels.
 
 ### HTTP Request
 
-`GET https://api.edvisor.io/v1/english-level`
+`GET https://app.edvisor.io/api/v1/english-level`
 
 ### URL Parameters
 
