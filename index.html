@@ -1,1 +1,669 @@
-MY page
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Edvisor.io API Reference</title>
+
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="javascripts/all.js" type="text/javascript"></script>
+
+      <script>
+        $(function() {
+          setupLanguages(["shell"]);
+        });
+      </script>
+  </head>
+
+  <body class="index">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+        <img src='images/logo.svg' style='width: 80%; margin: 10px; margin: 10px auto 10px auto;' />
+      <!-- <img src="images/logo.svg" /> -->
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://www.edvisor.io'>Sign Up for Edvisor.io</a></li>
+            <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        
+          <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the BETA Edvisor.io API! You can use our API to access endpoints which can get, create, update, or delete information stored in the Edvisor.io application.</p>
+
+<p>You can view code examples in the dark area to the right.</p>
+
+<p>To access our API, please contact us at <a href='mailto:support@edvisor.io'>support@edvisor.io</a>.</p>
+
+          <h1 id="authentication">Authentication</h1>
+
+<blockquote>
+<p>To authorize, use this code:</p>
+</blockquote>
+<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+curl <span class="s2">"api_endpoint_here"</span>
+  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
+</code></pre>
+
+<blockquote>
+<p>Make sure to replace <code class="prettyprint">your_edvisor_api_key</code> with your API key.</p>
+</blockquote>
+
+<p>Edvisor.io uses API keys to allow access to the API. To access our API, please contact us at <a href='mailto:support@edvisor.io'>support@edvisor.io</a>.</p>
+
+<p>Edvisor.io expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+
+<p><code class="prettyprint">Authorization: private_key=&quot;your_edvisor_api_key&quot;</code></p>
+
+<aside class="notice">
+You must replace <code>your_edvisor_api_key</code> with your API key.
+</aside>
+
+<aside class="warning">
+It is your responsibility to not expose your Edvisor.io API key to the public. All requests to the Edvisor API should be made from your server and not a customer-facing front end.
+</aside>
+
+          <h1 id="education-level">Education Level</h1>
+
+<h2 id="list-all-education-levels">List all education levels</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/education-level"</span>
+  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"educationLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High School"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"displayOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"educationLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"College"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"displayOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"educationLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"University"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"displayOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"educationLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Middle School"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"displayOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint will list all the education levels.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/education-level</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<p>(None)</p>
+
+          <h1 id="english-level">English Level</h1>
+
+<h2 id="list-all-english-levels">List all english levels</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/english-level"</span>
+  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"englishLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beginner"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"englishLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intermediate"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"englishLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Advanced"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint will list all the english levels.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/english-level</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<p>(None)</p>
+
+          <h1 id="student">Student</h1>
+
+<h2 id="create-a-student">Create a student</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/student"</span>
+  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">; Content-Type: application/json"</span> 
+  -X POST 
+  -d <span class="s1">'{}'</span> //your json parameters
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"studentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"agencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"nationalityId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Biden"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joebiden@fakemail.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-16T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"passportNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"nationalIdNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"studentStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Here are some notes about the student..."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"accommodation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Homestay"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"budget"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"startMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"startYear"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"startDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"studentMarketingChannelId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"educationLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"englishLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"durationWeekAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"hoursPerWeek"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amOrPm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AM"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currentLocationGooglePlaceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"isHighPriority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"studentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fk3k333"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint will create a student.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://app.edvisor.io/api/v1/student</code></p>
+
+<h3 id="json-request-object">JSON Request Object</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agencyId</td>
+<td>Yes</td>
+<td>Number</td>
+<td></td>
+<td>The ID of the office you want this student to belong to.</td>
+</tr>
+<tr>
+<td>ownerId</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The ID of the user we want to assign the student to. If set to NULL, the student will be left as unassigned.</td>
+</tr>
+<tr>
+<td>nationalityId</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The Country ID of the nationality of the student.</td>
+</tr>
+<tr>
+<td>firstname</td>
+<td>Yes</td>
+<td>String</td>
+<td></td>
+<td>The first name of the student.</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The last name of the student.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The email of the student. Note: You can only have one student with the same email in your company.</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The phone number of the student.</td>
+</tr>
+<tr>
+<td>address</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The address of your student.</td>
+</tr>
+<tr>
+<td>postalCode</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The postal code of your student.</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>No</td>
+<td>String (M/F)</td>
+<td>NULL</td>
+<td>The gender of your student. Accepted values are &rsquo;M&rsquo; or &lsquo;F&rsquo;.</td>
+</tr>
+<tr>
+<td>birthdate</td>
+<td>No</td>
+<td>String (YYYY-MM-DD)</td>
+<td>NULL</td>
+<td>The birthdate of your student. Format must be YYYY-MM-DD.</td>
+</tr>
+<tr>
+<td>passportNumber</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The passport number of the student.</td>
+</tr>
+<tr>
+<td>nationalIdNumber</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The national ID number of the student.</td>
+</tr>
+<tr>
+<td>studentStatusId</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The first stage in your student pipeline.</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>Any notes you wish to keep with the student.</td>
+</tr>
+<tr>
+<td>accommodation</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>Accommodation goals for the student.</td>
+</tr>
+<tr>
+<td>budget</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>Budget information</td>
+</tr>
+<tr>
+<td>startMonth</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The numerical value of the month the student wishes to start.</td>
+</tr>
+<tr>
+<td>startYear</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The numerical value of the year the student wishes to start.</td>
+</tr>
+<tr>
+<td>startDay</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The numerical value of the day the student wishes to start.</td>
+</tr>
+<tr>
+<td>studentMarketingChannelId</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The Student Marketing Channel ID that describes the channel the student came in from.</td>
+</tr>
+<tr>
+<td>educationLevelId</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The Education Level ID that describes what education level the student is currently at.</td>
+</tr>
+<tr>
+<td>englishLevelId</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The English Level ID that describes what english level the student currently has.</td>
+</tr>
+<tr>
+<td>durationWeekAmount</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The number of weeks the student wishes to study for.</td>
+</tr>
+<tr>
+<td>hoursPerWeek</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The number of hours per week the student wishes to study for.</td>
+</tr>
+<tr>
+<td>amOrPm</td>
+<td>No</td>
+<td>String (AM/PM)</td>
+<td>NULL</td>
+<td>Whether the student wants to study in the AM or PM.</td>
+</tr>
+<tr>
+<td>currentLocationGooglePlaceId</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The Place ID provided by Google&rsquo;s <a href='https://developers.google.com/places/webservice/'>Places API</a>. This represents where the student is currently residing.</td>
+</tr>
+<tr>
+<td>isHighPriority</td>
+<td>No</td>
+<td>Boolean</td>
+<td>false</td>
+<td>Whether the student should be marked as high priority.</td>
+</tr>
+<tr>
+<td>studentNumber</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>Any external student number that you wish to store with the student.</td>
+</tr>
+<tr>
+<td>studentLocationPreferences</td>
+<td>No</td>
+<td>Object[]</td>
+<td>NULL</td>
+<td>An array of Google Place IDs which represent the locations that the student wishes to study in.</td>
+</tr>
+<tr>
+<td>studentLocationPreferences[].googlePlaceId</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>Google Place ID which represent the locations that the student wishes to study in.</td>
+</tr>
+<tr>
+<td>studentCoursePreferences</td>
+<td>No</td>
+<td>Object[]</td>
+<td>NULL</td>
+<td>An array of course names representing the courses that the student wishes to be enrolled in.</td>
+</tr>
+<tr>
+<td>studentCoursePreferences[].name</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>A course name representing the course that the student wishes to be enrolled in.</td>
+</tr>
+<tr>
+<td>studentSchoolPreferences</td>
+<td>No</td>
+<td>Object[]</td>
+<td>NULL</td>
+<td>An array of school names representing the schools that the student wishes to be enrolled in.</td>
+</tr>
+<tr>
+<td>studentSchoolPreferences[].name</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>A school name representing the school that the student wishes to be enrolled in.</td>
+</tr>
+</tbody></table>
+
+<!-- student_visa_type_id -->
+
+<!-- student_priority_id -->
+
+          <h1 id="student-marketing-channel">Student Marketing Channel</h1>
+
+<h2 id="list-all-student-marketing-channels">List all student marketing channels</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/student-marketing-channel"</span>
+  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"studentMarketingChannelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Word of mouth"</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"studentMarketingChannelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Website"</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"studentMarketingChannelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Social Media"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint will list all the student marketing channels.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/student-marketing-channel</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<p>(None)</p>
+
+          <h1 id="student-status">Student Status</h1>
+
+<h2 id="list-all-student-statuses">List all student statuses</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/student-status/list?filter={"</span>where<span class="s2">":{"</span>agencyId<span class="s2">":92}}"</span>
+  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"studentStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">795</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"agencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lead"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"studentCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"studentStatusSteps"</span><span class="p">:[]</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"studentStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">796</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"agencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deciding"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"studentCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"studentStatusSteps"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+
+<p>This endpoint will list all the student statuses.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/student-status/list</code></p>
+
+<h3 id="example">Example</h3>
+
+<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/student-status/list?filter={&quot;where&quot;:{&quot;agencyId&quot;:92}}</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filter</td>
+<td>Yes</td>
+<td>false</td>
+<td>A JSON Object.</td>
+</tr>
+<tr>
+<td>filter.where</td>
+<td>Yes</td>
+<td>false</td>
+<td>A JSON Object.</td>
+</tr>
+<tr>
+<td>filter.where.agencyId</td>
+<td>Yes</td>
+<td>false</td>
+<td>The Agency ID to filter the student statuses.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="country">Country</h1>
+
+<h2 id="list-all-countries">List all countries</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/country"</span>
+  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"countryId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="err">ad</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"continent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUROPE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"languageId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nameTranslationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">37431</span><span class="w">
+    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"countryId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="err">ae</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"continent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASIA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"languageId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"nameTranslationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">37432</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">...</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint will list all the countries.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/country</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<p>(None)</p>
+
+          <h1 id="errors">Errors</h1>
+
+<p>The Edvisor.io API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; Your request sucks</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key is wrong</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden &ndash; The resource requested is not available to you</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified resource could not be found</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
