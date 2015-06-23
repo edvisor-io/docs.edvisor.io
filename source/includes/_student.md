@@ -56,8 +56,8 @@ This endpoint will create a student.
 
 Parameter | Required | Type | Default | Description
 --------- | -------- | ---- | ------- | -----------
-agencyId | Yes | Number | | The ID of the office you want this student to belong to.
-ownerId | No | Number | NULL | The ID of the user we want to assign the student to. If set to NULL, the student will be left as unassigned.
+agencyId | Yes | Number | | The ID of the office you want this student to belong to. This can be found in the settings page of Edvisor.io.
+ownerId | No | Number | NULL | The ID of the user we want to assign the student to. This can be found in the settings page of Edvisor.io. If set to NULL, the student will be left as unassigned.
 nationalityId | No | Number | NULL | The Country ID of the nationality of the student.
 firstname | Yes | String | | The first name of the student.
 lastname | No | String | NULL | The last name of the student.
