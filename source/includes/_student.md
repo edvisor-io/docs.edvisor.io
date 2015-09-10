@@ -26,7 +26,6 @@ curl "https://app.edvisor.io/api/v1/student"
   "gender": "M",
   "birthdate": "2015-06-16T00:00:00.000Z",
   "passportNumber": null,
-  "nationalIdNumber": 12345,
   "studentStatusId": 1,
   "notes": "Here are some notes about the student...",
   "accommodation": "Homestay",
@@ -34,15 +33,22 @@ curl "https://app.edvisor.io/api/v1/student"
   "startMonth": "01",
   "startYear": "2015",
   "startDay": "25",
-  "studentMarketingChannelId": null,
-  "educationLevelId": 1,
-  "englishLevelId": 1,
   "durationWeekAmount": 10,
   "hoursPerWeek": 25,
   "amOrPm": "AM",
   "currentLocationGooglePlaceId": "ChIJ--IExB6rOQcRZysfWJNymsk",
   "isHighPriority": 0,
-  "studentNumber": "fk3k333"
+  "studentNumber": "fk3k333",
+  "customPropertyValues": [
+    {
+      "customPropertyFieldId": "favorite-color",
+      "customOptionSelections": ["Red"]
+    },
+    {
+     "customPropertyFieldId": "best-friend-name",
+     "value" : "Kenta"
+    }
+  ]
 }
 ```
 
@@ -68,7 +74,6 @@ postalCode | No | String | NULL | The postal code of your student.
 gender | No | String (M/F) | NULL | The gender of your student. Accepted values are 'M' or 'F'.
 birthdate | No | String (YYYY-MM-DD) | NULL | The birthdate of your student. Format must be YYYY-MM-DD.
 passportNumber | No | String | NULL | The passport number of the student.
-nationalIdNumber | No | String | NULL | The national ID number of the student.
 studentStatusId | No | Number | NULL | The first stage in your student pipeline. | The Student Status ID to assign to your student.
 notes | No | String | NULL | Any notes you wish to keep with the student.
 accommodation | No | String | NULL | Accommodation goals for the student.
@@ -76,9 +81,6 @@ budget | No | String | NULL | Budget information
 startMonth | No | Number | NULL | The numerical value of the month the student wishes to start.
 startYear | No | Number | NULL | The numerical value of the year the student wishes to start.
 startDay | No | Number | NULL | The numerical value of the day the student wishes to start.
-studentMarketingChannelId | No | Number | NULL | The Student Marketing Channel ID that describes the channel the student came in from.
-educationLevelId | No | Number | NULL | The Education Level ID that describes what education level the student is currently at.
-englishLevelId | No | Number | NULL | The English Level ID that describes what english level the student currently has.
 durationWeekAmount | No | Number | NULL | The number of weeks the student wishes to study for.
 hoursPerWeek | No | Number | NULL | The number of hours per week the student wishes to study for.
 amOrPm | No | String (AM/PM) | NULL | Whether the student wants to study in the AM or PM.
@@ -91,6 +93,10 @@ studentCoursePreferences | No | Object[] | NULL | An array of course names repre
 studentCoursePreferences[].name | No | String | NULL | A course name representing the course that the student wishes to be enrolled in.
 studentSchoolPreferences | No | Object[] | NULL | An array of school names representing the schools that the student wishes to be enrolled in.
 studentSchoolPreferences[].name | No | String | NULL | A school name representing the school that the student wishes to be enrolled in.
+customPropertyValues | No | Object[] | NULL | An array of custom property values to save with the student
+customPropertyValues[].customPropertyFieldId | Yes | String | NULL | The Custom Property Field ID of the custom property you wish to save
+customPropertyValues[].value | Yes | String | NULL | The value you want to save with this custom property. This is required ONLY if the custom property is not a dropdown
+customPropertyValues[].customOptionSelections[] | Yes | String[] | NULL | This is an array of option selections. In the case of a dropdown field, you will only need to pass one value into this array. Note, this is ONLY required if the custom property is a dropdown
 
 
 <!-- student_visa_type_id -->

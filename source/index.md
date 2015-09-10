@@ -11,10 +11,7 @@ toc_footers:
 includes:
   - introduction
   - authentication
-  - educationLevel
-  - englishLevel
   - student
-  - studentMarketingChannel
   - studentStatus
   - country
   - errors
