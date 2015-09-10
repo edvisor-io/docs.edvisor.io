@@ -82,86 +82,6 @@ You must replace <code>your_edvisor_api_key</code> with your API key.
 It is your responsibility to not expose your Edvisor.io API key to the public. All requests to the Edvisor API should be made from your server and not a customer-facing front end.
 </aside>
 
-          <h1 id="education-level">Education Level</h1>
-
-<h2 id="list-all-education-levels">List all education levels</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/education-level"</span>
-  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"educationLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"High School"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"displayOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"educationLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"College"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"displayOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"educationLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"University"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"displayOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"educationLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Middle School"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"displayOrder"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint will list all the education levels.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/education-level</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<p>(None)</p>
-
-          <h1 id="english-level">English Level</h1>
-
-<h2 id="list-all-english-levels">List all english levels</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/english-level"</span>
-  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"englishLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Beginner"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"englishLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Intermediate"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"englishLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Advanced"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint will list all the english levels.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/english-level</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<p>(None)</p>
-
           <h1 id="student">Student</h1>
 
 <h2 id="create-a-student">Create a student</h2>
@@ -188,7 +108,6 @@ It is your responsibility to not expose your Edvisor.io API key to the public. A
   </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-16T00:00:00.000Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"passportNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"nationalIdNumber"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="p">,</span><span class="w">
   </span><span class="s2">"studentStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Here are some notes about the student..."</span><span class="p">,</span><span class="w">
   </span><span class="s2">"accommodation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Homestay"</span><span class="p">,</span><span class="w">
@@ -196,15 +115,22 @@ It is your responsibility to not expose your Edvisor.io API key to the public. A
   </span><span class="s2">"startMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"startYear"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"startDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"studentMarketingChannelId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"educationLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"englishLevelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"durationWeekAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="s2">"hoursPerWeek"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
   </span><span class="s2">"amOrPm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AM"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"currentLocationGooglePlaceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"isHighPriority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"studentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fk3k333"</span><span class="w">
+  </span><span class="s2">"studentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fk3k333"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"favorite-color"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"customOptionSelections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Red"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"best-friend-name"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenta"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -310,13 +236,6 @@ It is your responsibility to not expose your Edvisor.io API key to the public. A
 <td>The passport number of the student.</td>
 </tr>
 <tr>
-<td>nationalIdNumber</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>The national ID number of the student.</td>
-</tr>
-<tr>
 <td>studentStatusId</td>
 <td>No</td>
 <td>Number</td>
@@ -364,27 +283,6 @@ It is your responsibility to not expose your Edvisor.io API key to the public. A
 <td>Number</td>
 <td>NULL</td>
 <td>The numerical value of the day the student wishes to start.</td>
-</tr>
-<tr>
-<td>studentMarketingChannelId</td>
-<td>No</td>
-<td>Number</td>
-<td>NULL</td>
-<td>The Student Marketing Channel ID that describes the channel the student came in from.</td>
-</tr>
-<tr>
-<td>educationLevelId</td>
-<td>No</td>
-<td>Number</td>
-<td>NULL</td>
-<td>The Education Level ID that describes what education level the student is currently at.</td>
-</tr>
-<tr>
-<td>englishLevelId</td>
-<td>No</td>
-<td>Number</td>
-<td>NULL</td>
-<td>The English Level ID that describes what english level the student currently has.</td>
 </tr>
 <tr>
 <td>durationWeekAmount</td>
@@ -470,46 +368,39 @@ It is your responsibility to not expose your Edvisor.io API key to the public. A
 <td>NULL</td>
 <td>A school name representing the school that the student wishes to be enrolled in.</td>
 </tr>
+<tr>
+<td>customPropertyValues</td>
+<td>No</td>
+<td>Object[]</td>
+<td>NULL</td>
+<td>An array of custom property values to save with the student</td>
+</tr>
+<tr>
+<td>customPropertyValues[].customPropertyFieldId</td>
+<td>Yes</td>
+<td>String</td>
+<td>NULL</td>
+<td>The Custom Property Field ID of the custom property you wish to save</td>
+</tr>
+<tr>
+<td>customPropertyValues[].value</td>
+<td>Yes</td>
+<td>String</td>
+<td>NULL</td>
+<td>The value you want to save with this custom property. This is required ONLY if the custom property is not a dropdown</td>
+</tr>
+<tr>
+<td>customPropertyValues[].customOptionSelections[]</td>
+<td>Yes</td>
+<td>String[]</td>
+<td>NULL</td>
+<td>This is an array of option selections. In the case of a dropdown field, you will only need to pass one value into this array. Note, this is ONLY required if the custom property is a dropdown</td>
+</tr>
 </tbody></table>
 
 <!-- student_visa_type_id -->
 
 <!-- student_priority_id -->
-
-          <h1 id="student-marketing-channel">Student Marketing Channel</h1>
-
-<h2 id="list-all-student-marketing-channels">List all student marketing channels</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/student-marketing-channel"</span>
-  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"studentMarketingChannelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Word of mouth"</span><span class="w">
-    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"studentMarketingChannelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Website"</span><span class="w">
-  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"studentMarketingChannelId"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"codeName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Social Media"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="err">...</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint will list all the student marketing channels.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/student-marketing-channel</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<p>(None)</p>
 
           <h1 id="student-status">Student Status</h1>
 
