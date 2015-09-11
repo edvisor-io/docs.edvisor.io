@@ -98,7 +98,16 @@ customPropertyValues[].customPropertyFieldId | Yes | String | NULL | The Custom 
 customPropertyValues[].value | Yes | String | NULL | The value you want to save with this custom property. This is required ONLY if the custom property is not a dropdown
 customPropertyValues[].customOptionSelections[] | Yes | String[] | NULL | This is an array of option selections. In the case of a dropdown field, you will only need to pass one value into this array. Note, this is ONLY required if the custom property is a dropdown
 
+## Custom Properties
 
-<!-- student_visa_type_id -->
-<!-- student_priority_id -->
+Custom properties allow you to setup and store any additional fields you want to with a student.
+Custom properties can be set up in the Settings section of the Edvisor.io application. 
+
+Please note that custom properties are unique to each individual office. Therefore, when creating 
+new student with custom properties, you must ensure that the office you are assigning the student
+to has the custom properties that you wish to store with the student.
+
+When storing custom properties with a student you will refer to the custom property by the Custom
+Property Field ID. This ID is set during the creation of a custom property in the Settings section
+of the Edvisor.io application.
 
