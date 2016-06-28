@@ -1,3 +1,46 @@
+/* ==========================================================================
+    Edvisor styles
+   ========================================================================== */
+/* REDS */
+$red: #e15647;
+$light-red: #fcf1f0;
+$dark-red: #D45244;
+$darker-red: #C44C3F;
+
+/* ORANGES */
+$orange: #f49500;
+$light-orange: #fcf8f0;
+$dark-orange: #E68E00;
+$darker-orange: #DB8700;
+$star-orange-color: #e39500;
+
+/* YELLOWS */
+$light-yellow: #FFFCD5;
+$yellow: #FFD214;
+
+/* GREENS */
+$green: #71b200;
+$light-green: #F1F5EA;
+$darker-green: #619900;
+$dark-green: #69A600;
+
+/* BLUES */
+$blue: #0792d4;
+$light-blue: #f3fbfe;
+$dark-blue: #0688C4;
+$darker-blue: #057CB3;
+$disabled-blue: #83c8e9;
+
+/* GRAYS */
+$gray: #adb1b3;
+$light-gray: #dfe3e5;
+$light-gray-mid: #EBF0F2;
+$lighter-gray:          #F7F9FA;
+$dark-gray:             #7c7e80;
+$darker-gray:           #575859;
+$off-gray:              #f0f5f7;
+$off-gray-hover:        #d2dadf;
+
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
 
@@ -28,7 +71,7 @@ $examples-bg: #393939;
 $code-bg: #292929;
 $code-annotation-bg: #1c1c1c;
 $nav-subitem-bg: #262626;
-$nav-active-bg: #2467af;
+$nav-active-bg: $blue;
 $lang-select-border: #000;
 $lang-select-bg: #222;
 $lang-select-active-bg: $examples-bg; // feel free to change this to blue or something

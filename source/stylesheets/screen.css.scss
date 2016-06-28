@@ -80,6 +80,14 @@ html, body {
   }
 
   // This is the logo at the top of the ToC
+  & > svg {
+    width: 80%;
+    transform: translateX(-50%);
+    margin-left: 50%;
+    margin-top: 15px;
+    fill: $blue;
+  }
+
   &>img {
     display: block;
     max-width: 100%;
@@ -625,3 +633,9 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+img[alt="img"] {
+  width: 70%;
+  max-width: 300px;
+}
+
