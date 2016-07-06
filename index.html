@@ -205,6 +205,21 @@ It is your responsibility to not expose your Edvisor.io API key to the public. A
   </span><span class="nt">"currentLocationGooglePlaceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"isHighPriority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"studentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fk3k333"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"studentLocationPreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"googlePlaceId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"studentCoursePreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English 101"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"studentSchoolPreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internation School"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"favorite-color"</span><span class="p">,</span><span class="w">
@@ -482,18 +497,107 @@ It is your responsibility to not expose your Edvisor.io API key to the public. A
 </tr>
 </tbody></table>
 
-<h2 id="custom-properties">Custom Properties</h2>
+          <h2 id="edvisor-fields">Edvisor Fields</h2>
 
-<p>Custom properties allow you to setup and store any additional fields you want to with a student.
-Custom properties can be set up in the Settings section of the Edvisor.io application. </p>
+<p><img alt="agency" src="images/student.png" />
+<img alt="agency" src="images/goals.png" /></p>
 
-<p>Please note that custom properties are unique to each individual office. Therefore, when creating 
-new student with custom properties, you must ensure that the office you are assigning the student
-to has the custom properties that you wish to store with the student.</p>
+          <h2 id="nationality">Nationality</h2>
+<pre class="highlight plaintext"><code>["Andorra","United Arab Emirates","Afghanistan","Antigua and Barbuda","Anguilla","Albania","Armenia","Angola","Antarctica","Argentina","American Samoa","Austria","Australia","Aruba","Azerbaijan","Bosnia and Herzegovina","Barbados","Bangladesh","Belgium","Burkina Faso","Bulgaria","Bahrain","Burundi","Benin","Bermuda","Brunei","Bolivia","Bonaire, Sint Eustatius and Saba","Brazil","The Bahamas","Bhutan","Botswana","Belarus","Belize","Canada","Cocos (Keeling) Islands","Congo","Central African Republic","Congo","Switzerland","CÃƒÂ´te d'Ivoire","Cook Islands","Chile","Cameroon","China","Colombia","Costa Rica","Cuba","Cape Verde","CuraÃƒÂ§ao","Christmas Island","Cyprus","Czech Republic","Germany","Djibouti","Denmark","Dominica","Dominican Republic","Algeria","Ecuador","Estonia","Egypt","Eritrea","Spain","Ethiopia","Finland","Fiji","Micronesia","Faroe Islands","France","Gabon","United Kingdom","Grenada","Georgia","French Guiana","Guernsey","Ghana","Gibraltar","Greenland","Gambia","Guinea","Guadeloupe","Equatorial Guinea","Greece","Guatemala","Guam","Guinea-Bissau","Guyana","Hong Kong","Honduras","Croatia","Haiti","Hungary","Indonesia","Ireland","Israel","Isle of Man","India","Iraq","Iran","Iceland","Italy","Jersey","Jamaica","Jordan","Japan","Kenya","Kyrgyzstan","Cambodia","Kiribati","Comoros","Saint Kitts and Nevis","North Korea","South Korea","Kuwait","Cayman Islands","Kazakhstan","Laos","Lebanon","Saint Lucia","Liechtenstein","Sri Lanka","Liberia","Lesotho","Lithuania","Luxembourg","Latvia","Libya","Morocco","Monaco","Moldova","Montenegro","Madagascar","Marshall Islands","Macedonia","Mali","Myanmar","Mongolia","Macao","Northern Mariana Islands","Martinique","Mauritania","Montserrat","Malta","Mauritius","Maldives","Malawi","Mexico","Malaysia","Mozambique","Namibia","New Caledonia","Niger","Norfolk Island","Nigeria","Nicaragua","Netherlands","Norway","Nepal","Nauru","Niue","New Zealand","Oman","Panama","Peru","French Polynesia","Papua New Guinea","Philippines","Pakistan","Poland","Pitcairn","Puerto Rico","Palestine","Portugal","Palau","Paraguay","Qatar","RÃƒÂ©union","Romania","Serbia","Russia","Rwanda","Saudi Arabia","Solomon Islands","Seychelles","Sudan","Sweden","Singapore","Slovenia","Slovakia","Sierra Leone","San Marino","Senegal","Somalia","Suriname","South Sudan","Sao Tome and Principe","El Salvador","Sint Maarten (dutch Part)","Syria","Swaziland","Turks and Caicos Islands","Chad","Togo","Thailand","Tajikistan","Tokelau","Timor-Leste","Turkmenistan","Tunisia","Tonga","Turkey","Trinidad and Tobago","Tuvalu","Taiwan","Tanzania","Ukraine","Uganda","United States","Uruguay","Uzbekistan","Holy See (Vatican City State)","Saint Vincent and The Grenadines","Venezuela","British Virgin Islands","US Virgin Islands","Vietnam","Vanuatu","Wallis and Futuna","Samoa","Serbia","Yemen","Mayotte","South Africa","Zambia","Zimbabwe","United States Minor Outlying Islands","British Indian Ocean Territory"]
+</code></pre>
 
-<p>When storing custom properties with a student you will refer to the custom property by the Custom
-Property Field ID. This ID is set during the creation of a custom property in the Settings section
-of the Edvisor.io application.</p>
+<p>&lsquo;nationalityId&rsquo; will only accept a number. Use the index number from the array to the right.</p>
+
+<p>If you want &ldquo;Andorra&rdquo; to be chosen, set</p>
+
+<p><code class="prettyprint">{&#39;nationalityId&#39;: 1}</code></p>
+
+<p>If you want &ldquo;Albania&rdquo; to be chosen, set </p>
+
+<p><code class="prettyprint">{&#39;nationalityId&#39;: 6}</code></p>
+
+          <h2 id="custom-fields">Custom Fields</h2>
+
+<blockquote>
+<p>Text or Date field</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+     </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"best-friend-name"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenta"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Dropdown field (case-sensitive)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"favorite-color"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customOptionSelections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Red"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Text and dropdown Field</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"favorite-color"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customOptionSelections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Red"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+     </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"best-friend-name"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenta"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Custom properties allow you to setup and store any additional fields you want to with a student.</p>
+
+<p><strong>Custom fields are unique to each individual office.</strong> <em>When creating 
+new student with custom properties, you must ensure that the office you are assigning the student to has the custom properties that you wish to store with the student.</em></p>
+
+<p>You can create custom fields in your <strong>Settings</strong> under the <strong>Agency</strong> tab.</p>
+
+<p>There are 3 types of custom fields. Text/Dropdown/Date</p>
+
+<p>Please be aware that <em>Dropdown</em> is case sensitive and that you must send the exact text.</p>
+
+<p>When you create a Custom field, you will get a <em>Field ID</em>. Use this ID as your &lsquo;customPropertyFieldId&rsquo;. Please refer to the right to see how your data should be structured.</p>
+
+<p><img alt="agency" src="images/customField.png" /></p>
+
+          <h2 id="googleplaceid">googlePlaceId</h2>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"currentLocationGooglePlaceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"studentLocationPreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"googlePlaceId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Google place id&rsquo;s is a way to standardize locations around the world. They are used in &lsquo;currentLocationGooglePlaceId&rsquo; and &#39;studentLocationPreferences&rsquo;.</p>
+
+<p>This is what a google place id looks like </p>
+
+<p><code class="prettyprint">ChIJ--IExB6rOQcRZysfWJNymsk</code></p>
+
+<p>For example Vancouver, BC, Canada is </p>
+
+<p><code class="prettyprint">ChIJs0-pQ_FzhlQRi_OBm-qWkbs</code></p>
+
+<p>For more documentation or if you want to find id&rsquo;s to send, please go to <a href="https://developers.google.com/places/place-id">Google&rsquo;s Place ID</a></p>
 
           <h1 id="student-status">Student Status</h1>
 
@@ -652,7 +756,9 @@ of the Edvisor.io application.</p>
 First, you must have a form displaying what information you want to collect.
 Second, you have to send that information to the Edvisor API. We will do that with Javascript.</p>
 
-<h2 id="form-setup">Form setup</h2>
+<p>Please refer to <a href="#create-a-student">Create a Student</a> to find out how to structure your data.</p>
+
+          <h2 id="form-setup">Form setup</h2>
 
 <p><img alt="img" src="images/form.png" /></p>
 
@@ -685,7 +791,7 @@ Second, you have to send that information to the Edvisor API. We will do that wi
 &lt;/form&gt;
 </code></pre>
 
-<p>Here is a basic form. We gave this form an id(identification) of &#39;edvisor-form&rsquo;.</p>
+<p>Here is a basic form. We gave this form an id(identification) of &lsquo;edvisor-form&rsquo;.</p>
 
 <p>Inside this form we have several fields (First Name, Last Name, Email, Message), and also a submit button.</p>
 
@@ -718,7 +824,7 @@ Second, you have to send that information to the Edvisor API. We will do that wi
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms">How to make a form</a></li>
 </ul>
 
-<h2 id="sending-the-data">Sending the data</h2>
+          <h2 id="sending-the-data">Sending the data</h2>
 
 <blockquote>
 <p>Basic Javascript Setup</p>
@@ -796,7 +902,7 @@ Second, you have to send that information to the Edvisor API. We will do that wi
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">Guide to Javascript</a></li>
 </ul>
 
-<h2 id="how-to-get-your-agencyid">How to get your agencyId</h2>
+          <h2 id="how-to-get-your-agencyid">How to get your agencyId</h2>
 
 <ol>
 <li>Log into Edvisor</li>
@@ -807,7 +913,7 @@ Second, you have to send that information to the Edvisor API. We will do that wi
 
 <p><img alt="agency" src="images/agencyId.png" /></p>
 
-<h2 id="style-your-form">Style your form</h2>
+          <h2 id="style-your-form">Style your form</h2>
 <pre class="highlight plaintext"><code>#edvisor-form {
   width: 300px;
   font-family: sans-serif;
@@ -860,7 +966,7 @@ Second, you have to send that information to the Edvisor API. We will do that wi
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started">Getting started with css</a></li>
 </ul>
 
-<h2 id="code-snippit">Code Snippit</h2>
+          <h2 id="code-snippit">Code Snippit</h2>
 <pre class="highlight plaintext"><code>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
 
 &lt;style&gt;
@@ -975,6 +1081,66 @@ Second, you have to send that information to the Edvisor API. We will do that wi
 </code></pre>
 
 <p>Here is the final code for the form above. After you add in your agencyId and API key as discussed in <a href="#sending-the-data">Sending the data</a>. You should be able to copy and paste this into your website.</p>
+
+          <h2 id="form-googleplaceid">Form googlePlaceId</h2>
+
+<h3 id="ajax-and-autocomplete-for-googleplaceid-fields">Ajax and Autocomplete for googlePlaceId fields</h3>
+<pre class="highlight plaintext"><code>$("#your-field").autocomplete({
+  source: function( request, response ) {
+    $.ajax({
+      url: 'https://app.edvisor.io/api/v1/google-place/search?public_key=APIKEY',
+      type: 'GET',
+      data: {
+        query: request.term
+      },
+      success: function(data) {
+        response(jQuery.map(data, function(item) {
+          return {
+            label: item.description,
+            id: item.place_id
+          };
+        }));
+      },
+    });
+  },
+  select: function(event, ui) {
+    var googleId = ui.item.id
+    event.target.setAttribute('data-google', googleId)
+  },
+  change: function (event, ui) {
+    if(ui.item == null || ui.item == undefined) {
+      $(this).val("")
+    }
+  }
+});
+
+// prevent hitting the enter button on the google field and accidently submitting the form.
+$("#your-field").keypress(function(event) {
+  if (event.keyCode == 13) {
+    event.preventDefault();
+  }
+});
+</code></pre>
+
+<p>If you want to have <strong>city</strong> or <strong>destinations</strong> on your form, you will need to do the following.</p>
+
+<p>You will need to load in jQuery Ui if you don&rsquo;t have an autocomplete library in your code.</p>
+
+<p><code class="prettyprint">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css&quot;&gt;
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+</code></p>
+
+<p>The code to the right will check to see if what the user types into the selected field matches anything in our database, and if it does, it will show everything that matches in a dropdown. The user can then select an option from the dropdown. </p>
+
+<p>Once the selection is over, it will store the Google Place Id into an attribute on the field called &lsquo;data-google&rsquo;. You can then select this by </p>
+
+<p><code class="prettyprint">$(your-field).attr(&#39;data-google&#39;)</code></p>
+
+<p>Below the ajax get, is a function to disable the enter key when inside the field. We found users were accidently submitting the form when using the auto complete.</p>
+
+<p>Replace <strong>your-field</strong> with the id of your field.
+Replace <strong>APIKEY</strong> with your Api key.</p>
 
       </div>
       <div class="dark-box">
