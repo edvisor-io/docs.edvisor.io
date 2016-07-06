@@ -11,11 +11,21 @@ toc_footers:
 includes:
   - introduction
   - authentication
-  - student
+  - student/student
+  - student/maptofield
+  - student/nationality
+  - student/customfield
+  - student/google
   - studentStatus
   - country
   - errors
-  - web2leads
+  - web2leads/web2leads
+  - web2leads/form
+  - web2leads/data
+  - web2leads/agencyid
+  - web2leads/style
+  - web2leads/snippit
+  - web2leads/googleplaceid
 
 search: true
 ---
