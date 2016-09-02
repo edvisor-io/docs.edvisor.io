@@ -229,6 +229,11 @@ It is your responsibility to not expose your Edvisor.io API key to the public. A
      </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"best-friend-name"</span><span class="p">,</span><span class="w">
      </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenta"</span><span class="w">
     </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"studentCurrentPipelineStages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"studentPipelineStageId"</span><span class="p">:</span><span class="mi">1160</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -494,6 +499,20 @@ It is your responsibility to not expose your Edvisor.io API key to the public. A
 <td>String[]</td>
 <td>NULL</td>
 <td>This is an array of option selections. In the case of a dropdown field, you will only need to pass one value into this array. Note, this is ONLY required if the custom property is a dropdown</td>
+</tr>
+<tr>
+<td>studentCurrentPipelineStage</td>
+<td>No</td>
+<td>Objecet[]</td>
+<td>NULL</td>
+<td>An array of pipeline stage ids representing the pipeline stages.</td>
+</tr>
+<tr>
+<td>studentCurrentPipelineStage[].studentPipelineStageId</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>A pipeline stage ID represeting the pipeline stage.</td>
 </tr>
 </tbody></table>
 
