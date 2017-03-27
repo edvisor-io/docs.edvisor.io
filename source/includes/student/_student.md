@@ -4,8 +4,9 @@
 
 ```shell
 curl "https://app.edvisor.io/api/v1/student"
-  -H "Authorization: private_key=\"your_edvisor_api_key\"; Content-Type: application/json" 
-  -X POST 
+  -X PUT
+  -H "Authorization: private_key=\"your_edvisor_api_key\""
+  -H "Content-Type: application/json"
   -d '{}' //your json parameters
 ```
 

@@ -16,7 +16,6 @@ includes:
   - student/nationality
   - student/customfield
   - student/google
-  - studentStatus
   - country
   - errors
   - web2leads/web2leads
