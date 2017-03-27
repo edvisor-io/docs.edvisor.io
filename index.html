@@ -170,8 +170,9 @@ It is your responsibility to not expose your Edvisor.io API key to the public. A
 
 <h2 id="create-a-student">Create a student</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/student"</span>
-  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">; Content-Type: application/json"</span> 
-  -X POST 
+  -X PUT
+  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
+  -H <span class="s2">"Content-Type: application/json"</span>
   -d <span class="s1">'{}'</span> //your json parameters
 </code></pre>
 
@@ -617,81 +618,6 @@ new student with custom properties, you must ensure that the office you are assi
 <p><code class="prettyprint">ChIJs0-pQ_FzhlQRi_OBm-qWkbs</code></p>
 
 <p>For more documentation or if you want to find id&rsquo;s to send, please go to <a href="https://developers.google.com/places/place-id">Google&rsquo;s Place ID</a></p>
-
-          <h1 id="student-status">Student Status</h1>
-
-<h2 id="list-all-student-statuses">List all student statuses</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/student-status/list?filter={"</span>where<span class="s2">":{"</span>agencyId<span class="s2">":92}}"</span>
-  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="nt">"studentStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">795</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"agencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w"> 
-    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lead"</span><span class="p">,</span><span class="w"> 
-    </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"studentCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"studentStatusSteps"</span><span class="p">:[]</span><span class="w">
-  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"studentStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">796</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"agencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Deciding"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"studentCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"studentStatusSteps"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="err">...</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-</span></code></pre>
-
-<p>This endpoint will list all the student statuses.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/student-status/list</code></p>
-
-<h3 id="example">Example</h3>
-
-<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/student-status/list?filter={&quot;where&quot;:{&quot;agencyId&quot;:92}}</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>filter</td>
-<td>Yes</td>
-<td>false</td>
-<td>A JSON Object.</td>
-</tr>
-<tr>
-<td>filter.where</td>
-<td>Yes</td>
-<td>false</td>
-<td>A JSON Object.</td>
-</tr>
-<tr>
-<td>filter.where.agencyId</td>
-<td>Yes</td>
-<td>false</td>
-<td>The Agency ID to filter the student statuses.</td>
-</tr>
-</tbody></table>
 
           <h1 id="country">Country</h1>
 
