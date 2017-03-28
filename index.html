@@ -783,7 +783,7 @@ Second, you have to send that information to the Edvisor API. We will do that wi
     $('#edvisor-message').remove();
 
     var formData = {
-      'agencyId' : '123'
+      'agencyId' : '123',
       'firstname' : $('#edvisor-firstname').val(),
       'lastname' : $('#edvisor-lastname').val(),
       'email' : $('#edvisor-email').val(),
@@ -807,7 +807,7 @@ Second, you have to send that information to the Edvisor API. We will do that wi
         })
         .fail(function(data) {
           $('#edvisor-form').append('&lt;p id="edvisor-message"&gt;Something went wrong!&lt;/p&gt;');
-          console.log(d
+          console.log(data)
           edvisorFormSending = false;
         });
 
