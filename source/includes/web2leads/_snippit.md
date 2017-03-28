@@ -78,7 +78,7 @@
     $('#edvisor-message').remove();
 
     var formData = {
-      'agencyId' : '123'
+      'agencyId' : '123',
       'firstname' : $('#edvisor-firstname').val(),
       'lastname' : $('#edvisor-lastname').val(),
       'email' : $('#edvisor-email').val(),
@@ -102,7 +102,7 @@
         })
         .fail(function(data) {
           $('#edvisor-form').append('<p id="edvisor-message">Something went wrong!</p>');
-          console.log(d
+          console.log(data)
           edvisorFormSending = false;
         });
 
