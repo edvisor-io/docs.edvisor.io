@@ -91,7 +91,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -113,7 +113,6 @@
       </svg>
 
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -123,7 +122,7 @@
       </div>
         <ul class="toc-footer">
             <li><a href='https://www.edvisor.io'>Sign Up for Edvisor.io</a></li>
-            <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -132,11 +131,55 @@
         
           <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the BETA Edvisor.io API! You can use our API to access endpoints which can get, create, update, or delete information stored in the Edvisor.io application.</p>
+<blockquote>
+<p>Sample GraphQL Request:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>POST https://api.edvisor.io/graphql
+</code></pre>
 
-<p>You can view code examples in the dark area to the right.</p>
+<blockquote>
+<p>Sample GraphQL Request Body:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"query"</span><span class="p">:</span><span class="w"> </span><span class="s2">"query {
+    student(studentId: 123) {
+      firstname, 
+      lastname, 
+      email
+    }
+  }"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Welcome to the Edvisor.io GraphQL API! You can use this API to create, read, update, and delete commonly used objects in Edvisor.io.</p>
+
+<p>This Edvisor.io API follows GraphQL (http://graphql.org/). </p>
 
 <p>To access our API, please contact us at <a href='mailto:support@edvisor.io'>support@edvisor.io</a>.</p>
+
+          <h1 id="integrations">Integrations</h1>
+
+<p>An Edvisor Agency account manages information about students, staff tasks and reminders, quotes, invoices, products and services (courses, accommodations, add-ons, fees) offered by “connected” schools, products and services offered by the agency, and student registrations. </p>
+
+<p>This document is provides an overview of the ways you can integrate with your edvisor agency account and the types of data you can push, pull, or synch with.  Most commonly, we see Edvisor Agency integrations with 3rd party CRMs (to make quoting and registering students more seamless), B2C Websites (to provide quoting or ecommerce functionality for students online), and accounting systems. </p>
+
+<p>There are three ways to integrate with your Edvisor account. </p>
+
+<h2 id="api-integration">API integration</h2>
+
+<p>This method allows you to update data in your Edvisor account with changes in your external system by calling the Edvisor API.</p>
+
+<p><img src='images/integration_agency_1.png'></p>
+
+<h2 id="webhooks-integration">Webhooks integration</h2>
+
+<p>This method allows you to update your external system with changes in your Edvisor account by registering a webhook and subscribing to the relevant events and implementing the necessary logic needed to handle the change event to update your existing system. </p>
+
+<p><img src='images/integration_agency_2.png'></p>
+
+<h2 id="api-and-webhooks-integration">API and Webhooks integration</h2>
+
+<p>This method allows 2-way synchronization between your Edvisor account and your existing back-office system by combining Method 1 and Method 2.</p>
 
           <h1 id="authentication">Authentication</h1>
 
@@ -144,8 +187,8 @@
 <p>To authorize, use this code:</p>
 </blockquote>
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
+curl <span class="s2">"https://api.edvisor.io/graphql"</span>
+  -H <span class="s2">"Authorization: Bearer &lt;your_edvisor_api_key&gt;"</span>
 </code></pre>
 
 <blockquote>
@@ -156,7 +199,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 
 <p>Edvisor.io expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
-<p><code class="prettyprint">Authorization: private_key=&quot;your_edvisor_api_key&quot;</code></p>
+<p><code class="prettyprint">Authorization: Bearer &lt;your_edvisor_api_key&gt;</code></p>
 
 <aside class="notice">
 You must replace <code>your_edvisor_api_key</code> with your API key.
@@ -166,530 +209,200 @@ You must replace <code>your_edvisor_api_key</code> with your API key.
 It is your responsibility to not expose your Edvisor.io API key to the public. All requests to the Edvisor API should be made from your server and not a customer-facing front end.
 </aside>
 
-          <h1 id="student">Student</h1>
+          <h1 id="webhooks">Webhooks</h1>
 
-<h2 id="create-a-student">Create a student</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/student"</span>
-  -X PUT
-  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
-  -H <span class="s2">"Content-Type: application/json"</span>
-  -d <span class="s1">'{}'</span> //your json parameters
-</code></pre>
+<h2 id="introduction">Introduction</h2>
+
+<p>In addition to the available GraphQL API, Edvisor.io can register webhooks so you can 
+synchronise the data in your agency account with an external service or system. When 
+registering a webhook, you’re able to subscribe to specific events so that you only 
+receive the events (synchronize the data) that you want. </p>
+
+<p>For example, if you’d like keep the student information in your external CRM up-to-date with 
+changes made to students in your Edvisor.io account, you can register a webhook that 
+subscribes to the “student:update” event.  When a student is updated on Edvisor.io, we will 
+then send the updated information to a pre-set URL.</p>
+
+<p>Sample Webhook:</p>
+
+<p>Webhook endpoint: <code class="prettyprint">https://api.your-agency.com/webhook/edvisor</code></p>
+
+<p>Events subscribed: <code class="prettyprint">student:create</code>, <code class="prettyprint">student:update</code></p>
+
+<p>What happens: When a student is updated or created, we will send a <code class="prettyprint">POST https://api.your-agency.com/webhook/edvisor</code> request with a body containing the changes that represent the event.</p>
+
+<h2 id="responding-to-a-webhook">Responding to a webhook</h2>
+
+<p>To acknowledge receipt of a webhook, your endpoint should return a 2xx HTTP status code. Any 
+other information returned in the request headers or request body is ignored. All response 
+codes outside this range, including 3xx codes, will indicate to Edvisor.io that you did not 
+receive the webhook. This does mean that a URL redirection or a &ldquo;Not Modified&rdquo; response will 
+be treated as a failure.</p>
+
+<p>If a webhook is not successfully received for any reason, Edvisor.io will continue trying 
+to send the webhook once every 15 minutes for up to 3 days. </p>
+
+<h2 id="available-events">Available events</h2>
+
+<h3 id="student">Student</h3>
+
+<ul>
+<li>student:create</li>
+<li>student:update</li>
+<li>student:delete</li>
+</ul>
+
+<h3 id="school">School</h3>
+
+<ul>
+<li>school:create</li>
+<li>school:update</li>
+<li>school:delete</li>
+</ul>
+
+<h3 id="offering">Offering</h3>
+
+<ul>
+<li>offering:create</li>
+<li>offering:update</li>
+<li>offering:delete</li>
+</ul>
+
+<h3 id="quote">Quote</h3>
+
+<ul>
+<li>quote:create</li>
+<li>quote:update</li>
+<li>quote:delete</li>
+</ul>
+
+<h3 id="promotion">Promotion</h3>
+
+<ul>
+<li>promotion:create</li>
+<li>promotion:update</li>
+<li>promotion:delete</li>
+</ul>
+
+<h3 id="student-enrollment">Student enrollment</h3>
+
+<ul>
+<li>studentEnrollment:create</li>
+<li>studentEnrollment:update</li>
+<li>studentEnrollment:delete</li>
+</ul>
+
+<h2 id="event-object">Event Object</h2>
+
+<p>The event object that is sent along with the webhook request will be structured like the following:</p>
 
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Sample Event object:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"studentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"agencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"nationalityId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Biden"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joebiden@fakemail.com"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-16T00:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"passportNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"studentStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Here are some notes about the student..."</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"accommodation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Homestay"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"budget"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"startMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"startYear"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"startDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"durationWeekAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"hoursPerWeek"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"amOrPm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AM"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"currentLocationGooglePlaceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"isHighPriority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"studentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fk3k333"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"studentLocationPreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"googlePlaceId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"studentCoursePreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English 101"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"studentSchoolPreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internation School"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"favorite-color"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"customOptionSelections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Red"</span><span class="p">]</span><span class="w">
+  </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-03-31T19:12:43.687Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Garcia"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john.garcia@education-agency.com"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"student:update"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"after"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"studentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frank@email.com"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-     </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"best-friend-name"</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenta"</span><span class="w">
+    </span><span class="nt">"before"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"studentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"studentCurrentPipelineStages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"studentPipelineStageId"</span><span class="p">:</span><span class="mi">1160</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint will create a student.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST https://app.edvisor.io/api/v1/student</code></p>
-
-<h3 id="json-request-object">JSON Request Object</h3>
-
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Required</th>
-<th>Type</th>
-<th>Default</th>
+<th>Attribute</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>agencyId</td>
-<td>Yes</td>
-<td>Number</td>
+<td>created</td>
+<td>Timestamp of when this event occured</td>
+</tr>
+<tr>
+<td>user</td>
+<td>Information regarding the creator of this event</td>
+</tr>
+<tr>
+<td>user.userId</td>
 <td></td>
-<td>The ID of the office you want this student to belong to. This can be found in the settings page of Edvisor.io.</td>
 </tr>
 <tr>
-<td>ownerId</td>
-<td>No</td>
-<td>Number</td>
-<td>NULL</td>
-<td>The ID of the user we want to assign the student to. This can be found in the settings page of Edvisor.io. If set to NULL, the student will be left as unassigned.</td>
-</tr>
-<tr>
-<td>nationalityId</td>
-<td>No</td>
-<td>Number</td>
-<td>NULL</td>
-<td>The Country ID of the nationality of the student.</td>
-</tr>
-<tr>
-<td>firstname</td>
-<td>Yes</td>
-<td>String</td>
+<td>user.firstname</td>
 <td></td>
-<td>The first name of the student.</td>
 </tr>
 <tr>
-<td>lastname</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>The last name of the student.</td>
+<td>user.lastname</td>
+<td></td>
 </tr>
 <tr>
-<td>email</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>The email of the student. Note: You can only have one student with the same email in your company.</td>
+<td>user.email</td>
+<td></td>
 </tr>
 <tr>
-<td>phone</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>The phone number of the student.</td>
+<td>type</td>
+<td>Event name (ie. <code class="prettyprint">student:create</code>)</td>
 </tr>
 <tr>
-<td>address</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>The address of your student.</td>
+<td>data</td>
+<td></td>
 </tr>
 <tr>
-<td>postalCode</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>The postal code of your student.</td>
+<td>data.after</td>
+<td>The object affected AFTER the event has taken place</td>
 </tr>
 <tr>
-<td>gender</td>
-<td>No</td>
-<td>String (M/F)</td>
-<td>NULL</td>
-<td>The gender of your student. Accepted values are &rsquo;M&rsquo; or &lsquo;F&rsquo;.</td>
-</tr>
-<tr>
-<td>birthdate</td>
-<td>No</td>
-<td>String (YYYY-MM-DD)</td>
-<td>NULL</td>
-<td>The birthdate of your student. Format must be YYYY-MM-DD.</td>
-</tr>
-<tr>
-<td>passportNumber</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>The passport number of the student.</td>
-</tr>
-<tr>
-<td>studentStatusId</td>
-<td>No</td>
-<td>Number</td>
-<td>NULL</td>
-<td>The first stage in your student pipeline.</td>
-</tr>
-<tr>
-<td>notes</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>Any notes you wish to keep with the student.</td>
-</tr>
-<tr>
-<td>accommodation</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>Accommodation goals for the student.</td>
-</tr>
-<tr>
-<td>budget</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>Budget information</td>
-</tr>
-<tr>
-<td>startMonth</td>
-<td>No</td>
-<td>Number</td>
-<td>NULL</td>
-<td>The numerical value of the month the student wishes to start.</td>
-</tr>
-<tr>
-<td>startYear</td>
-<td>No</td>
-<td>Number</td>
-<td>NULL</td>
-<td>The numerical value of the year the student wishes to start.</td>
-</tr>
-<tr>
-<td>startDay</td>
-<td>No</td>
-<td>Number</td>
-<td>NULL</td>
-<td>The numerical value of the day the student wishes to start.</td>
-</tr>
-<tr>
-<td>durationWeekAmount</td>
-<td>No</td>
-<td>Number</td>
-<td>NULL</td>
-<td>The number of weeks the student wishes to study for.</td>
-</tr>
-<tr>
-<td>hoursPerWeek</td>
-<td>No</td>
-<td>Number</td>
-<td>NULL</td>
-<td>The number of hours per week the student wishes to study for.</td>
-</tr>
-<tr>
-<td>amOrPm</td>
-<td>No</td>
-<td>String (AM/PM)</td>
-<td>NULL</td>
-<td>Whether the student wants to study in the AM or PM.</td>
-</tr>
-<tr>
-<td>currentLocationGooglePlaceId</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>The Place ID provided by Google&rsquo;s <a href='https://developers.google.com/places/webservice/'>Places API</a>. This represents where the student is currently residing.</td>
-</tr>
-<tr>
-<td>isHighPriority</td>
-<td>No</td>
-<td>Boolean</td>
-<td>false</td>
-<td>Whether the student should be marked as high priority.</td>
-</tr>
-<tr>
-<td>studentNumber</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>Any external student number that you wish to store with the student.</td>
-</tr>
-<tr>
-<td>studentLocationPreferences</td>
-<td>No</td>
-<td>Object[]</td>
-<td>NULL</td>
-<td>An array of Google Place IDs which represent the locations that the student wishes to study in.</td>
-</tr>
-<tr>
-<td>studentLocationPreferences[].googlePlaceId</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>Google Place ID which represent the locations that the student wishes to study in.</td>
-</tr>
-<tr>
-<td>studentCoursePreferences</td>
-<td>No</td>
-<td>Object[]</td>
-<td>NULL</td>
-<td>An array of course names representing the courses that the student wishes to be enrolled in.</td>
-</tr>
-<tr>
-<td>studentCoursePreferences[].name</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>A course name representing the course that the student wishes to be enrolled in.</td>
-</tr>
-<tr>
-<td>studentSchoolPreferences</td>
-<td>No</td>
-<td>Object[]</td>
-<td>NULL</td>
-<td>An array of school names representing the schools that the student wishes to be enrolled in.</td>
-</tr>
-<tr>
-<td>studentSchoolPreferences[].name</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>A school name representing the school that the student wishes to be enrolled in.</td>
-</tr>
-<tr>
-<td>customPropertyValues</td>
-<td>No</td>
-<td>Object[]</td>
-<td>NULL</td>
-<td>An array of custom property values to save with the student</td>
-</tr>
-<tr>
-<td>customPropertyValues[].customPropertyFieldId</td>
-<td>Yes</td>
-<td>String</td>
-<td>NULL</td>
-<td>The Custom Property Field ID of the custom property you wish to save</td>
-</tr>
-<tr>
-<td>customPropertyValues[].value</td>
-<td>Yes</td>
-<td>String</td>
-<td>NULL</td>
-<td>The value you want to save with this custom property. This is required ONLY if the custom property is not a dropdown</td>
-</tr>
-<tr>
-<td>customPropertyValues[].customOptionSelections[]</td>
-<td>Yes</td>
-<td>String[]</td>
-<td>NULL</td>
-<td>This is an array of option selections. In the case of a dropdown field, you will only need to pass one value into this array. Note, this is ONLY required if the custom property is a dropdown</td>
-</tr>
-<tr>
-<td>studentCurrentPipelineStage</td>
-<td>No</td>
-<td>Objecet[]</td>
-<td>NULL</td>
-<td>An array of pipeline stage ids representing the pipeline stages.</td>
-</tr>
-<tr>
-<td>studentCurrentPipelineStage[].studentPipelineStageId</td>
-<td>No</td>
-<td>String</td>
-<td>NULL</td>
-<td>A pipeline stage ID represeting the pipeline stage.</td>
+<td>data.before</td>
+<td>the object BEFORE the event took place</td>
 </tr>
 </tbody></table>
 
-          <h2 id="edvisor-fields">Edvisor Fields</h2>
+          <h1 id="api">API</h1>
 
-<p><img alt="agency" src="images/student.png" />
-<img alt="agency" src="images/goals.png" /></p>
+<p>You can view the full API documentation for our <a href='schema/'>GraphQL API here</a>. </p>
 
-          <h2 id="nationality">Nationality</h2>
-<pre class="highlight plaintext"><code>["Andorra","United Arab Emirates","Afghanistan","Antigua and Barbuda","Anguilla","Albania","Armenia","Angola","Antarctica","Argentina","American Samoa","Austria","Australia","Aruba","Azerbaijan","Bosnia and Herzegovina","Barbados","Bangladesh","Belgium","Burkina Faso","Bulgaria","Bahrain","Burundi","Benin","Bermuda","Brunei","Bolivia","Bonaire, Sint Eustatius and Saba","Brazil","The Bahamas","Bhutan","Botswana","Belarus","Belize","Canada","Cocos (Keeling) Islands","Congo","Central African Republic","Congo","Switzerland","CÃƒÂ´te d'Ivoire","Cook Islands","Chile","Cameroon","China","Colombia","Costa Rica","Cuba","Cape Verde","CuraÃƒÂ§ao","Christmas Island","Cyprus","Czech Republic","Germany","Djibouti","Denmark","Dominica","Dominican Republic","Algeria","Ecuador","Estonia","Egypt","Eritrea","Spain","Ethiopia","Finland","Fiji","Micronesia","Faroe Islands","France","Gabon","United Kingdom","Grenada","Georgia","French Guiana","Guernsey","Ghana","Gibraltar","Greenland","Gambia","Guinea","Guadeloupe","Equatorial Guinea","Greece","Guatemala","Guam","Guinea-Bissau","Guyana","Hong Kong","Honduras","Croatia","Haiti","Hungary","Indonesia","Ireland","Israel","Isle of Man","India","Iraq","Iran","Iceland","Italy","Jersey","Jamaica","Jordan","Japan","Kenya","Kyrgyzstan","Cambodia","Kiribati","Comoros","Saint Kitts and Nevis","North Korea","South Korea","Kuwait","Cayman Islands","Kazakhstan","Laos","Lebanon","Saint Lucia","Liechtenstein","Sri Lanka","Liberia","Lesotho","Lithuania","Luxembourg","Latvia","Libya","Morocco","Monaco","Moldova","Montenegro","Madagascar","Marshall Islands","Macedonia","Mali","Myanmar","Mongolia","Macao","Northern Mariana Islands","Martinique","Mauritania","Montserrat","Malta","Mauritius","Maldives","Malawi","Mexico","Malaysia","Mozambique","Namibia","New Caledonia","Niger","Norfolk Island","Nigeria","Nicaragua","Netherlands","Norway","Nepal","Nauru","Niue","New Zealand","Oman","Panama","Peru","French Polynesia","Papua New Guinea","Philippines","Pakistan","Poland","Pitcairn","Puerto Rico","Palestine","Portugal","Palau","Paraguay","Qatar","RÃƒÂ©union","Romania","Serbia","Russia","Rwanda","Saudi Arabia","Solomon Islands","Seychelles","Sudan","Sweden","Singapore","Slovenia","Slovakia","Sierra Leone","San Marino","Senegal","Somalia","Suriname","South Sudan","Sao Tome and Principe","El Salvador","Sint Maarten (dutch Part)","Syria","Swaziland","Turks and Caicos Islands","Chad","Togo","Thailand","Tajikistan","Tokelau","Timor-Leste","Turkmenistan","Tunisia","Tonga","Turkey","Trinidad and Tobago","Tuvalu","Taiwan","Tanzania","Ukraine","Uganda","United States","Uruguay","Uzbekistan","Holy See (Vatican City State)","Saint Vincent and The Grenadines","Venezuela","British Virgin Islands","US Virgin Islands","Vietnam","Vanuatu","Wallis and Futuna","Samoa","Serbia","Yemen","Mayotte","South Africa","Zambia","Zimbabwe","United States Minor Outlying Islands","British Indian Ocean Territory"]
-</code></pre>
+<p>Please note that we are currently using GraphQL which is quite different from typical RESTful API&rsquo;s. To learn
+more about how to interact with a GraphQL API, please checkout <a href='http://graphql.org/'>http://graphql.org/</a>.</p>
 
-<p>&lsquo;nationalityId&rsquo; will only accept a number. Use the index number from the array to the right.</p>
-
-<p>If you want &ldquo;Andorra&rdquo; to be chosen, set</p>
-
-<p><code class="prettyprint">{&#39;nationalityId&#39;: 1}</code></p>
-
-<p>If you want &ldquo;Albania&rdquo; to be chosen, set </p>
-
-<p><code class="prettyprint">{&#39;nationalityId&#39;: 6}</code></p>
-
-          <h2 id="custom-fields">Custom Fields</h2>
-
-<blockquote>
-<p>Text or Date field</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-     </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"best-friend-name"</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenta"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<blockquote>
-<p>Dropdown field (case-sensitive)</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"favorite-color"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"customOptionSelections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Red"</span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<blockquote>
-<p>Text and dropdown Field</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"favorite-color"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"customOptionSelections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Red"</span><span class="p">]</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-     </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"best-friend-name"</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenta"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Custom properties allow you to setup and store any additional fields you want to with a student.</p>
-
-<p><strong>Custom fields are unique to each individual office.</strong> <em>When creating 
-new student with custom properties, you must ensure that the office you are assigning the student to has the custom properties that you wish to store with the student.</em></p>
-
-<p>You can create custom fields in your <strong>Settings</strong> under the <strong>Agency</strong> tab.</p>
-
-<p>There are 3 types of custom fields. Text/Dropdown/Date</p>
-
-<p>Please be aware that <em>Dropdown</em> is case sensitive and that you must send the exact text.</p>
-
-<p>When you create a Custom field, you will get a <em>Field ID</em>. Use this ID as your &lsquo;customPropertyFieldId&rsquo;. Please refer to the right to see how your data should be structured.</p>
-
-<p><img alt="agency" src="images/customField.png" /></p>
-
-          <h2 id="googleplaceid">googlePlaceId</h2>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"currentLocationGooglePlaceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"studentLocationPreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"googlePlaceId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>Google place id&rsquo;s is a way to standardize locations around the world. They are used in &lsquo;currentLocationGooglePlaceId&rsquo; and &#39;studentLocationPreferences&rsquo;.</p>
-
-<p>This is what a google place id looks like </p>
-
-<p><code class="prettyprint">ChIJ--IExB6rOQcRZysfWJNymsk</code></p>
-
-<p>For example Vancouver, BC, Canada is </p>
-
-<p><code class="prettyprint">ChIJs0-pQ_FzhlQRi_OBm-qWkbs</code></p>
-
-<p>For more documentation or if you want to find id&rsquo;s to send, please go to <a href="https://developers.google.com/places/place-id">Google&rsquo;s Place ID</a></p>
-
-          <h1 id="country">Country</h1>
-
-<h2 id="list-all-countries">List all countries</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://app.edvisor.io/api/v1/country"</span>
-  -H <span class="s2">"Authorization: private_key=</span><span class="se">\"</span><span class="s2">your_edvisor_api_key</span><span class="se">\"</span><span class="s2">"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"countryId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> 
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="err">ad</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"continent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EUROPE"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"currencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"languageId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"nameTranslationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">37431</span><span class="w">
-    </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"countryId"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> 
-    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="err">ae</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"continent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASIA"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"currencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"languageId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"nameTranslationId"</span><span class="p">:</span><span class="w"> </span><span class="mi">37432</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="err">...</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint will list all the countries.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://app.edvisor.io/api/v1/country</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<p>(None)</p>
+<p>To access our API, please contact us at <a href='mailto:support@edvisor.io'>support@edvisor.io</a>.</p>
 
           <h1 id="errors">Errors</h1>
 
-<p>The Edvisor.io API uses the following error codes:</p>
+<p>Edvisor.io will respond with a 200 success code even if there are operational errors. This follows the GraphQL specification. All errors will be described in an <code class="prettyprint">errors</code> array in the response.</p>
+<pre class="highlight json"><code><span class="err">#Sample</span><span class="w"> </span><span class="err">error</span><span class="w"> </span><span class="err">response</span><span class="w">
 
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden &ndash; The resource requested is not available to you</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The specified resource could not be found</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
-</tr>
-</tbody></table>
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"agencyCompany"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"errors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unauthenticated"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nt">"line"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+          </span><span class="nt">"column"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"agencyCompany"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
           <h1 id="web-2-leads">Web 2 Leads</h1>
 
@@ -701,7 +414,7 @@ new student with custom properties, you must ensure that the office you are assi
 First, you must have a form displaying what information you want to collect.
 Second, you have to send that information to the Edvisor API. We will do that with Javascript.</p>
 
-<p>Please refer to <a href="#create-a-student">Create a Student</a> to find out how to structure your data.</p>
+<p>Please refer to <a href="#form-data">Form Data</a> to find out how to structure your data.</p>
 
           <h2 id="form-setup">Form setup</h2>
 
@@ -1087,10 +800,446 @@ $("#your-field").keypress(function(event) {
 <p>Replace <strong>your-field</strong> with the id of your field.
 Replace <strong>APIKEY</strong> with your Api key.</p>
 
+<h3 id="how-googleplaceid-works">How googlePlaceId works</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"currentLocationGooglePlaceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"studentLocationPreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"googlePlaceId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Google place id&rsquo;s is a way to standardize locations around the world. They are used in &#39;currentLocationGooglePlaceId&rsquo; and &#39;studentLocationPreferences&rsquo;.</p>
+
+<p>This is what a google place id looks like </p>
+
+<p><code class="prettyprint">ChIJ--IExB6rOQcRZysfWJNymsk</code></p>
+
+<p>For example Vancouver, BC, Canada is </p>
+
+<p><code class="prettyprint">ChIJs0-pQ_FzhlQRi_OBm-qWkbs</code></p>
+
+<p>For more documentation or if you want to find id&rsquo;s to send, please go to <a href="https://developers.google.com/places/place-id">Google&rsquo;s Place ID</a></p>
+
+          <h2 id="form-data">Form Data</h2>
+
+<p>This is what your data should look like when sending it to Edvisor.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"studentId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"agencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"ownerId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"nationalityId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"firstname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Joe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"lastname"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Biden"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"joebiden@fakemail.com"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"555-555-5555"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"address"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"postalCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"birthdate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-06-16T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"passportNumber"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"studentStatusId"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Here are some notes about the student..."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"accommodation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Homestay"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"budget"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"startMonth"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"startYear"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"startDay"</span><span class="p">:</span><span class="w"> </span><span class="s2">"25"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"durationWeekAmount"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"hoursPerWeek"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"amOrPm"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AM"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"currentLocationGooglePlaceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"isHighPriority"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"studentNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fk3k333"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"studentLocationPreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"googlePlaceId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ChIJ--IExB6rOQcRZysfWJNymsk"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"studentCoursePreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"English 101"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"studentSchoolPreferences"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Internation School"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"favorite-color"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customOptionSelections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Red"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+     </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"best-friend-name"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenta"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"studentCurrentPipelineStages"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"studentPipelineStageId"</span><span class="p">:</span><span class="mi">1160</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="json-request-object">JSON Request Object</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>agencyId</td>
+<td>Yes</td>
+<td>Number</td>
+<td></td>
+<td>The ID of the office you want this student to belong to. This can be found in the settings page of Edvisor.io.</td>
+</tr>
+<tr>
+<td>ownerId</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The ID of the user we want to assign the student to. This can be found in the settings page of Edvisor.io. If set to NULL, the student will be left as unassigned.</td>
+</tr>
+<tr>
+<td>nationalityId</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The Country ID of the nationality of the student.</td>
+</tr>
+<tr>
+<td>firstname</td>
+<td>Yes</td>
+<td>String</td>
+<td></td>
+<td>The first name of the student.</td>
+</tr>
+<tr>
+<td>lastname</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The last name of the student.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The email of the student. Note: You can only have one student with the same email in your company.</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The phone number of the student.</td>
+</tr>
+<tr>
+<td>address</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The address of your student.</td>
+</tr>
+<tr>
+<td>postalCode</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The postal code of your student.</td>
+</tr>
+<tr>
+<td>gender</td>
+<td>No</td>
+<td>String (M/F)</td>
+<td>NULL</td>
+<td>The gender of your student. Accepted values are &rsquo;M&rsquo; or &lsquo;F&rsquo;.</td>
+</tr>
+<tr>
+<td>birthdate</td>
+<td>No</td>
+<td>String (YYYY-MM-DD)</td>
+<td>NULL</td>
+<td>The birthdate of your student. Format must be YYYY-MM-DD.</td>
+</tr>
+<tr>
+<td>passportNumber</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The passport number of the student.</td>
+</tr>
+<tr>
+<td>studentStatusId</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The first stage in your student pipeline.</td>
+</tr>
+<tr>
+<td>notes</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>Any notes you wish to keep with the student.</td>
+</tr>
+<tr>
+<td>accommodation</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>Accommodation goals for the student.</td>
+</tr>
+<tr>
+<td>budget</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>Budget information</td>
+</tr>
+<tr>
+<td>startMonth</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The numerical value of the month the student wishes to start.</td>
+</tr>
+<tr>
+<td>startYear</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The numerical value of the year the student wishes to start.</td>
+</tr>
+<tr>
+<td>startDay</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The numerical value of the day the student wishes to start.</td>
+</tr>
+<tr>
+<td>durationWeekAmount</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The number of weeks the student wishes to study for.</td>
+</tr>
+<tr>
+<td>hoursPerWeek</td>
+<td>No</td>
+<td>Number</td>
+<td>NULL</td>
+<td>The number of hours per week the student wishes to study for.</td>
+</tr>
+<tr>
+<td>amOrPm</td>
+<td>No</td>
+<td>String (AM/PM)</td>
+<td>NULL</td>
+<td>Whether the student wants to study in the AM or PM.</td>
+</tr>
+<tr>
+<td>currentLocationGooglePlaceId</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>The Place ID provided by Google&rsquo;s <a href='https://developers.google.com/places/webservice/'>Places API</a>. This represents where the student is currently residing.</td>
+</tr>
+<tr>
+<td>isHighPriority</td>
+<td>No</td>
+<td>Boolean</td>
+<td>false</td>
+<td>Whether the student should be marked as high priority.</td>
+</tr>
+<tr>
+<td>studentNumber</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>Any external student number that you wish to store with the student.</td>
+</tr>
+<tr>
+<td>studentLocationPreferences</td>
+<td>No</td>
+<td>Object[]</td>
+<td>NULL</td>
+<td>An array of Google Place IDs which represent the locations that the student wishes to study in.</td>
+</tr>
+<tr>
+<td>studentLocationPreferences[].googlePlaceId</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>Google Place ID which represent the locations that the student wishes to study in.</td>
+</tr>
+<tr>
+<td>studentCoursePreferences</td>
+<td>No</td>
+<td>Object[]</td>
+<td>NULL</td>
+<td>An array of course names representing the courses that the student wishes to be enrolled in.</td>
+</tr>
+<tr>
+<td>studentCoursePreferences[].name</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>A course name representing the course that the student wishes to be enrolled in.</td>
+</tr>
+<tr>
+<td>studentSchoolPreferences</td>
+<td>No</td>
+<td>Object[]</td>
+<td>NULL</td>
+<td>An array of school names representing the schools that the student wishes to be enrolled in.</td>
+</tr>
+<tr>
+<td>studentSchoolPreferences[].name</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>A school name representing the school that the student wishes to be enrolled in.</td>
+</tr>
+<tr>
+<td>customPropertyValues</td>
+<td>No</td>
+<td>Object[]</td>
+<td>NULL</td>
+<td>An array of custom property values to save with the student</td>
+</tr>
+<tr>
+<td>customPropertyValues[].customPropertyFieldId</td>
+<td>Yes</td>
+<td>String</td>
+<td>NULL</td>
+<td>The Custom Property Field ID of the custom property you wish to save</td>
+</tr>
+<tr>
+<td>customPropertyValues[].value</td>
+<td>Yes</td>
+<td>String</td>
+<td>NULL</td>
+<td>The value you want to save with this custom property. This is required ONLY if the custom property is not a dropdown</td>
+</tr>
+<tr>
+<td>customPropertyValues[].customOptionSelections[]</td>
+<td>Yes</td>
+<td>String[]</td>
+<td>NULL</td>
+<td>This is an array of option selections. In the case of a dropdown field, you will only need to pass one value into this array. Note, this is ONLY required if the custom property is a dropdown</td>
+</tr>
+<tr>
+<td>studentCurrentPipelineStage</td>
+<td>No</td>
+<td>Objecet[]</td>
+<td>NULL</td>
+<td>An array of pipeline stage ids representing the pipeline stages.</td>
+</tr>
+<tr>
+<td>studentCurrentPipelineStage[].studentPipelineStageId</td>
+<td>No</td>
+<td>String</td>
+<td>NULL</td>
+<td>A pipeline stage ID represeting the pipeline stage.</td>
+</tr>
+</tbody></table>
+
+          <h2 id="edvisor-fields">Edvisor Fields</h2>
+
+<p><img alt="agency" src="images/student.png" />
+<img alt="agency" src="images/goals.png" /></p>
+
+          <h2 id="nationality">Nationality</h2>
+<pre class="highlight plaintext"><code>["Andorra","United Arab Emirates","Afghanistan","Antigua and Barbuda","Anguilla","Albania","Armenia","Angola","Antarctica","Argentina","American Samoa","Austria","Australia","Aruba","Azerbaijan","Bosnia and Herzegovina","Barbados","Bangladesh","Belgium","Burkina Faso","Bulgaria","Bahrain","Burundi","Benin","Bermuda","Brunei","Bolivia","Bonaire, Sint Eustatius and Saba","Brazil","The Bahamas","Bhutan","Botswana","Belarus","Belize","Canada","Cocos (Keeling) Islands","Congo","Central African Republic","Congo","Switzerland","CÃƒÂ´te d'Ivoire","Cook Islands","Chile","Cameroon","China","Colombia","Costa Rica","Cuba","Cape Verde","CuraÃƒÂ§ao","Christmas Island","Cyprus","Czech Republic","Germany","Djibouti","Denmark","Dominica","Dominican Republic","Algeria","Ecuador","Estonia","Egypt","Eritrea","Spain","Ethiopia","Finland","Fiji","Micronesia","Faroe Islands","France","Gabon","United Kingdom","Grenada","Georgia","French Guiana","Guernsey","Ghana","Gibraltar","Greenland","Gambia","Guinea","Guadeloupe","Equatorial Guinea","Greece","Guatemala","Guam","Guinea-Bissau","Guyana","Hong Kong","Honduras","Croatia","Haiti","Hungary","Indonesia","Ireland","Israel","Isle of Man","India","Iraq","Iran","Iceland","Italy","Jersey","Jamaica","Jordan","Japan","Kenya","Kyrgyzstan","Cambodia","Kiribati","Comoros","Saint Kitts and Nevis","North Korea","South Korea","Kuwait","Cayman Islands","Kazakhstan","Laos","Lebanon","Saint Lucia","Liechtenstein","Sri Lanka","Liberia","Lesotho","Lithuania","Luxembourg","Latvia","Libya","Morocco","Monaco","Moldova","Montenegro","Madagascar","Marshall Islands","Macedonia","Mali","Myanmar","Mongolia","Macao","Northern Mariana Islands","Martinique","Mauritania","Montserrat","Malta","Mauritius","Maldives","Malawi","Mexico","Malaysia","Mozambique","Namibia","New Caledonia","Niger","Norfolk Island","Nigeria","Nicaragua","Netherlands","Norway","Nepal","Nauru","Niue","New Zealand","Oman","Panama","Peru","French Polynesia","Papua New Guinea","Philippines","Pakistan","Poland","Pitcairn","Puerto Rico","Palestine","Portugal","Palau","Paraguay","Qatar","RÃƒÂ©union","Romania","Serbia","Russia","Rwanda","Saudi Arabia","Solomon Islands","Seychelles","Sudan","Sweden","Singapore","Slovenia","Slovakia","Sierra Leone","San Marino","Senegal","Somalia","Suriname","South Sudan","Sao Tome and Principe","El Salvador","Sint Maarten (dutch Part)","Syria","Swaziland","Turks and Caicos Islands","Chad","Togo","Thailand","Tajikistan","Tokelau","Timor-Leste","Turkmenistan","Tunisia","Tonga","Turkey","Trinidad and Tobago","Tuvalu","Taiwan","Tanzania","Ukraine","Uganda","United States","Uruguay","Uzbekistan","Holy See (Vatican City State)","Saint Vincent and The Grenadines","Venezuela","British Virgin Islands","US Virgin Islands","Vietnam","Vanuatu","Wallis and Futuna","Samoa","Serbia","Yemen","Mayotte","South Africa","Zambia","Zimbabwe","United States Minor Outlying Islands","British Indian Ocean Territory"]
+</code></pre>
+
+<p>&lsquo;nationalityId&rsquo; will only accept a number. Use the index number from the array to the right.</p>
+
+<p>If you want &ldquo;Andorra&rdquo; to be chosen, set</p>
+
+<p><code class="prettyprint">{&#39;nationalityId&#39;: 1}</code></p>
+
+<p>If you want &ldquo;Albania&rdquo; to be chosen, set </p>
+
+<p><code class="prettyprint">{&#39;nationalityId&#39;: 6}</code></p>
+
+          <h2 id="custom-fields">Custom Fields</h2>
+
+<blockquote>
+<p>Text or Date field</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+     </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"best-friend-name"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenta"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Dropdown field (case-sensitive)</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"favorite-color"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customOptionSelections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Red"</span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Text and dropdown Field</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"customPropertyValues"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"favorite-color"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"customOptionSelections"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Red"</span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+     </span><span class="nt">"customPropertyFieldId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"best-friend-name"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Kenta"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Custom properties allow you to setup and store any additional fields you want to with a student.</p>
+
+<p><strong>Custom fields are unique to each individual office.</strong> <em>When creating 
+new student with custom properties, you must ensure that the office you are assigning the student to has the custom properties that you wish to store with the student.</em></p>
+
+<p>You can create custom fields in your <strong>Settings</strong> under the <strong>Agency</strong> tab.</p>
+
+<p>There are 3 types of custom fields. Text/Dropdown/Date</p>
+
+<p>Please be aware that <em>Dropdown</em> is case sensitive and that you must send the exact text.</p>
+
+<p>When you create a Custom field, you will get a <em>Field ID</em>. Use this ID as your &lsquo;customPropertyFieldId&rsquo;. Please refer to the right to see how your data should be structured.</p>
+
+<p><img alt="agency" src="images/customField.png" /></p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
           </div>
       </div>
     </div>
