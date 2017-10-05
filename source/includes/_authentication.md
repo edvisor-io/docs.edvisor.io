@@ -4,8 +4,8 @@
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: private_key=\"your_edvisor_api_key\""
+curl "https://api.edvisor.io/graphql"
+  -H "Authorization: Bearer <your_edvisor_api_key>"
 ```
 
 > Make sure to replace `your_edvisor_api_key` with your API key.
@@ -14,7 +14,7 @@ Edvisor.io uses API keys to allow access to the API. To access our API, please c
 
 Edvisor.io expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: private_key="your_edvisor_api_key"`
+`Authorization: Bearer <your_edvisor_api_key>`
 
 <aside class="notice">
 You must replace <code>your_edvisor_api_key</code> with your API key.

@@ -1,7 +1,27 @@
 # Introduction
 
-Welcome to the BETA Edvisor.io API! You can use our API to access endpoints which can get, create, update, or delete information stored in the Edvisor.io application.
+> Sample GraphQL Request:
 
-You can view code examples in the dark area to the right.
+```
+POST https://api.edvisor.io/graphql
+```
+
+> Sample GraphQL Request Body:
+
+```json
+{
+  "query": "query {
+    student(studentId: 123) {
+      firstname, 
+      lastname, 
+      email
+    }
+  }"
+}
+```
+
+Welcome to the Edvisor.io GraphQL API! You can use this API to create, read, update, and delete commonly used objects in Edvisor.io.
+
+This Edvisor.io API follows GraphQL (http://graphql.org/). 
 
 To access our API, please contact us at <a href='mailto:support@edvisor.io'>support@edvisor.io</a>.

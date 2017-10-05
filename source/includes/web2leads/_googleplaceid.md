@@ -59,3 +59,29 @@ Below the ajax get, is a function to disable the enter key when inside the field
 
 Replace **your-field** with the id of your field.
 Replace **APIKEY** with your Api key.
+
+### How googlePlaceId works
+
+```
+{
+  "currentLocationGooglePlaceId": "ChIJ--IExB6rOQcRZysfWJNymsk",
+  "studentLocationPreferences": [
+    {
+      "googlePlaceId" : "ChIJ--IExB6rOQcRZysfWJNymsk"
+    }
+  ]
+}
+```
+
+Google place id's is a way to standardize locations around the world. They are used in 'currentLocationGooglePlaceId' and 'studentLocationPreferences'.
+
+This is what a google place id looks like 
+
+`ChIJ--IExB6rOQcRZysfWJNymsk`
+
+For example Vancouver, BC, Canada is 
+
+`ChIJs0-pQ_FzhlQRi_OBm-qWkbs`
+
+For more documentation or if you want to find id's to send, please go to [Google's Place ID](https://developers.google.com/places/place-id)
+

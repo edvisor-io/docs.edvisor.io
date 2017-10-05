@@ -1,12 +1,27 @@
 # Errors
 
-The Edvisor.io API uses the following error codes:
+Edvisor.io will respond with a 200 success code even if there are operational errors. This follows the GraphQL specification. All errors will be described in an `errors` array in the response.
 
+```json
+#Sample error response
 
-Error Code | Meaning
----------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The resource requested is not available to you
-404 | Not Found -- The specified resource could not be found
-500 | Internal Server Error -- We had a problem with our server. Try again later.
+{
+  "data": {
+    "agencyCompany": null
+  },
+  "errors": [
+    {
+      "message": "Unauthenticated",
+      "locations": [
+        {
+          "line": 2,
+          "column": 3
+        }
+      ],
+      "path": [
+        "agencyCompany"
+      ]
+    }
+  ]
+}
+```

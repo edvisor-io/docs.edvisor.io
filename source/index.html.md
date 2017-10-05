@@ -1,22 +1,19 @@
 ---
 title: Edvisor.io API Reference
 
-language_tabs:
-  - shell
+<!-- language_tabs:
+  - sample -->
 
 toc_footers:
   - <a href='https://www.edvisor.io'>Sign Up for Edvisor.io</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
   - introduction
+  - integration
   - authentication
-  - student/student
-  - student/maptofield
-  - student/nationality
-  - student/customfield
-  - student/google
-  - country
+  - webhooks
+  - api
   - errors
   - web2leads/web2leads
   - web2leads/form
@@ -25,6 +22,10 @@ includes:
   - web2leads/style
   - web2leads/snippit
   - web2leads/googleplaceid
+  - web2leads/student/student
+  - web2leads/student/maptofield
+  - web2leads/student/nationality
+  - web2leads/student/customfield
 
 search: true
 ---

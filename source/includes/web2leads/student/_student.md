@@ -1,16 +1,6 @@
-# Student
+## Form Data
 
-## Create a student
-
-```shell
-curl "https://app.edvisor.io/api/v1/student"
-  -X PUT
-  -H "Authorization: private_key=\"your_edvisor_api_key\""
-  -H "Content-Type: application/json"
-  -d '{}' //your json parameters
-```
-
-> The above command returns JSON structured like this:
+This is what your data should look like when sending it to Edvisor.
 
 ```json
 {
@@ -72,12 +62,6 @@ curl "https://app.edvisor.io/api/v1/student"
   ]
 }
 ```
-
-This endpoint will create a student.
-
-### HTTP Request
-
-`POST https://app.edvisor.io/api/v1/student`
 
 ### JSON Request Object
 
