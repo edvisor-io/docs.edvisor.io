@@ -32,6 +32,9 @@ file specified by the '--config-file' option."
 
 bundle exec middleman build --clean
 
+#https://github.com/2fd/graphdoc
+graphdoc --endpoint https://api.edvisor.io/graphql -o ./build/schema --force
+
 parse_args() {
   # Set args from a local environment file.
   if [ -e ".env" ]; then
