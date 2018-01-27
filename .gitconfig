@@ -1,0 +1,9 @@
+[alias]
+	st = status
+	co = checkout
+	pr = pull --rebase
+[push]
+	default = simple
+[user]
+	email = devops@edvisor.io
+	name = Edvisor Devops
