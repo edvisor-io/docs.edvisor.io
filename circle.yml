@@ -19,7 +19,7 @@ jobs:
           - vendor/bundle
     - run:
         name: Deploy Staging
-        command: bash deploy.sh
+        command: ./deploy.sh && ./restore-cname.sh
 
 workflows:
   version: 2
