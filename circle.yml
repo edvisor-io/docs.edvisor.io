@@ -1,0 +1,37 @@
+version: 2
+jobs:
+  deploy-docs:
+    docker:
+      - image: edvisor/node:8-build
+        environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
+          BUNDLE_PATH: vendor/bundle
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+          - gem-cache-{{ checksum "Gemfile.lock" }}
+    - run:
+        name: Setup
+        command: |
+          bundle check || bundle install --without development test
+          npm install -g @2fd/graphdoc
+    - save_cache:
+        key: gem-cache-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+    - run:
+        name: Deploy Staging
+        command: |
+          cp .gitconfig $HOME/.gitconfig
+          ./deploy.sh && ./restore-cname.sh
+
+workflows:
+  version: 2
+  deploy-docs:
+    jobs:
+      - deploy-docs:
+          filters:
+            branches:
+              only: master
