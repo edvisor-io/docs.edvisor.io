@@ -1,0 +1,24 @@
+version: 2
+jobs:
+  deploy-docs:
+    docker:
+      - image: edvisor/node:8-build
+    steps:
+    - checkout
+    - run:
+        name: Setup
+        command: |
+          bundle install
+          npm install -g @2fd/graphdoc
+    - run:
+        name: Deploy Staging
+        command: bash deploy.sh
+
+workflows:
+  version: 2
+  deploy-docs:
+    jobs:
+      - deploy-docs:
+          filters:
+            branches:
+              only: master
