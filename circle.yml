@@ -5,11 +5,18 @@ jobs:
       - image: edvisor/node:8-build
     steps:
     - checkout
+    - restore_cache:
+        keys:
+          - gem-cache-{{ arch }}-{{ checksum "Gemfile.lock" }}
     - run:
         name: Setup
         command: |
           bundle install
           npm install -g @2fd/graphdoc
+    - save_cache:
+        key: gem-cache-{{ arch }}-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
     - run:
         name: Deploy Staging
         command: bash deploy.sh
