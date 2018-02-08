@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  deploy-docs:
+  build:
     docker:
       - image: edvisor/node:8-build
         environment:
@@ -31,7 +31,8 @@ workflows:
   version: 2
   deploy-docs:
     jobs:
-      - deploy-docs:
+      - build:
           filters:
             branches:
               only: master
+
