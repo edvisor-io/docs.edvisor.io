@@ -400,6 +400,16 @@
                 OfferingAccommodationSearchResult
             </a>
         </li>
+        <li  title="OfferingAgencyCompanyEligible">
+            <a href="offeringagencycompanyeligible.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OfferingAgencyCompanyEligible
+            </a>
+        </li>
+        <li  title="OfferingAgencyCountryEligible">
+            <a href="offeringagencycountryeligible.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OfferingAgencyCountryEligible
+            </a>
+        </li>
         <li  title="OfferingCourse">
             <a href="offeringcourse.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OfferingCourse
@@ -498,6 +508,11 @@
         <li  title="OfferingPriceTemplateListResultInterface">
             <a href="offeringpricetemplatelistresultinterface.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OfferingPriceTemplateListResultInterface
+            </a>
+        </li>
+        <li  title="OfferingSchoolCompanyGroup">
+            <a href="offeringschoolcompanygroup.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OfferingSchoolCompanyGroup
             </a>
         </li>
         <li  title="OfferingSearchFilterOptionsResult">
@@ -960,6 +975,26 @@
                 OfferingAccommodationInputNestedRelationInterfaceInput
             </a>
         </li>
+        <li  title="OfferingAgencyCompanyEligibleInput">
+            <a href="offeringagencycompanyeligibleinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OfferingAgencyCompanyEligibleInput
+            </a>
+        </li>
+        <li  title="OfferingAgencyCompanyEligibleInputNestedRelationInterfaceInput">
+            <a href="offeringagencycompanyeligibleinputnestedrelationinterfaceinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OfferingAgencyCompanyEligibleInputNestedRelationInterfaceInput
+            </a>
+        </li>
+        <li  title="OfferingAgencyCountryEligibleInput">
+            <a href="offeringagencycountryeligibleinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OfferingAgencyCountryEligibleInput
+            </a>
+        </li>
+        <li  title="OfferingAgencyCountryEligibleInputNestedRelationInterfaceInput">
+            <a href="offeringagencycountryeligibleinputnestedrelationinterfaceinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OfferingAgencyCountryEligibleInputNestedRelationInterfaceInput
+            </a>
+        </li>
         <li  title="OfferingCourseInput">
             <a href="offeringcourseinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OfferingCourseInput
@@ -1098,6 +1133,16 @@
         <li  title="OfferingPriceTemplatesFilterInput">
             <a href="offeringpricetemplatesfilterinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OfferingPriceTemplatesFilterInput
+            </a>
+        </li>
+        <li  title="OfferingSchoolCompanyGroupInput">
+            <a href="offeringschoolcompanygroupinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OfferingSchoolCompanyGroupInput
+            </a>
+        </li>
+        <li  title="OfferingSchoolCompanyGroupInputNestedRelationInterfaceInput">
+            <a href="offeringschoolcompanygroupinputnestedrelationinterfaceinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OfferingSchoolCompanyGroupInputNestedRelationInterfaceInput
             </a>
         </li>
         <li  title="OfferingSearchResultFilter">
@@ -1463,7 +1508,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Offering</span> {</li><li></li><li><span class="tab"><span class="meta">offeringId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">schoolId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">agencyId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">isEnabled</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">isVisible</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">isDeleted</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">defaultLanguageId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMinDurationAmount</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMinDurationTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMaxDurationAmount</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMaxDurationTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMinAge</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMaxAge</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">availabilityStart</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">availabilityEnd</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">modified</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">applicableFees</span>: [<a class="support type" href="fee.doc.html">Fee</a>] </span></li><li></li><li><span class="tab"><span class="meta">offeringAccommodation</span>: <a class="support type" href="offeringaccommodation.doc.html">OfferingAccommodation</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringCourse</span>: <a class="support type" href="offeringcourse.doc.html">OfferingCourse</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringService</span>: <a class="support type" href="offeringservice.doc.html">OfferingService</a> </span></li><li></li><li><span class="tab"><span class="meta">school</span>: <a class="support type" href="school.doc.html">School</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringPackage</span>: <a class="support type" href="offeringpackage.doc.html">OfferingPackage</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringPhotos</span>: [<a class="support type" href="file.doc.html">File</a>] </span></li><li></li><li><span class="tab"><span class="meta">offeringNames</span>: [<a class="support type" href="offeringname.doc.html">OfferingName</a>] </span></li><li></li><li><span class="tab"><span class="meta">offeringNotes</span>: [<a class="support type" href="offeringnote.doc.html">OfferingNote</a>] </span></li><li></li><li><span class="tab"><span class="meta">offeringDescriptions</span>: [<a class="support type" href="offeringdescription.doc.html">OfferingDescription</a>] </span></li><li></li><li><span class="tab"><span class="meta">offeringStudentNationalitiesEligible</span>: [<a class="support type" href="offeringstudentnationalityeligible.doc.html">OfferingStudentNationalityEligible</a>] </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageCode</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageId</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">name</span>(<span class="meta">languageCode</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">languageId</span>: <a class="support type" href="int.doc.html">Int</a>): <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Offering</span> {</li><li></li><li><span class="tab"><span class="meta">offeringId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">schoolId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">agencyId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">isEnabled</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">isVisible</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">isDeleted</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">defaultLanguageId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMinDurationAmount</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMinDurationTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMaxDurationAmount</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMaxDurationTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMinAge</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">reqMaxAge</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">availabilityStart</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">availabilityEnd</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">isEligibleAllAgencies</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">isEligibleByAgencyLocation</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">modified</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">applicableFees</span>: [<a class="support type" href="fee.doc.html">Fee</a>] </span></li><li></li><li><span class="tab"><span class="meta">offeringAccommodation</span>: <a class="support type" href="offeringaccommodation.doc.html">OfferingAccommodation</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringCourse</span>: <a class="support type" href="offeringcourse.doc.html">OfferingCourse</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringService</span>: <a class="support type" href="offeringservice.doc.html">OfferingService</a> </span></li><li></li><li><span class="tab"><span class="meta">school</span>: <a class="support type" href="school.doc.html">School</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringPackage</span>: <a class="support type" href="offeringpackage.doc.html">OfferingPackage</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringPhotos</span>: [<a class="support type" href="file.doc.html">File</a>] </span></li><li></li><li><span class="tab"><span class="meta">offeringNames</span>: [<a class="support type" href="offeringname.doc.html">OfferingName</a>] </span></li><li></li><li><span class="tab"><span class="meta">offeringNotes</span>: [<a class="support type" href="offeringnote.doc.html">OfferingNote</a>] </span></li><li></li><li><span class="tab"><span class="meta">offeringDescriptions</span>: [<a class="support type" href="offeringdescription.doc.html">OfferingDescription</a>] </span></li><li></li><li><span class="tab"><span class="meta">offeringStudentNationalitiesEligible</span>: [<a class="support type" href="offeringstudentnationalityeligible.doc.html">OfferingStudentNationalityEligible</a>] </span></li><li></li><li><span class="tab"><span class="meta">eligibleAgencyCompanies</span>: [<a class="support type" href="offeringagencycompanyeligible.doc.html">OfferingAgencyCompanyEligible</a>] </span></li><li></li><li><span class="tab"><span class="meta">eligibleAgencyCountries</span>: [<a class="support type" href="offeringagencycountryeligible.doc.html">OfferingAgencyCountryEligible</a>] </span></li><li></li><li><span class="tab"><span class="meta">offeringSchoolCompanyGroups</span>: [<a class="support type" href="offeringschoolcompanygroup.doc.html">OfferingSchoolCompanyGroup</a>] </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageCode</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageId</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">name</span>(<span class="meta">languageCode</span>: <a class="support type" href="string.doc.html">String</a>, <span class="meta">languageId</span>: <a class="support type" href="int.doc.html">Int</a>): <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
