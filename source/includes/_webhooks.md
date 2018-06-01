@@ -39,11 +39,17 @@ to send the webhook once every 15 minutes for up to 3 days.
 * student:update
 * student:delete
 
-### School
+### School Company
 
 * school:create
 * school:update
 * school:delete
+
+### Campus
+
+* campus:create
+* campus:update
+* campus:delete
 
 ### Offering
 
@@ -51,23 +57,11 @@ to send the webhook once every 15 minutes for up to 3 days.
 * offering:update
 * offering:delete
 
-### Quote
+### Start Date Template
 
-* quote:create
-* quote:update
-* quote:delete
-
-### Promotion
-
-* promotion:create
-* promotion:update
-* promotion:delete
-
-### Student enrollment
-
-* studentEnrollment:create
-* studentEnrollment:update
-* studentEnrollment:delete
+* startDateTemplate:create
+* startDateTemplate:update
+* startDateTemplate:delete
 
 ## Event Object
 
