@@ -173,3 +173,100 @@ curl 'https://api.edvisor.io/graphql'
 If you are an agency customer, you have full ability to explore the data of the schools you're connected to through our API.
 
 To begin, we recommend you start with the `agencyCompany` query which will return to you data on your own Agency account. From there you can traverse our API in GraphQL to the data of your connected schools.
+
+## Viewing a Quote
+
+> To fetch all the course information on a quote
+
+```
+query {
+  studentQuote(studentQuoteId:1) {
+    studentQuoteId
+    studentQuoteOptions {
+      studentQuoteOptionItems {
+        __typename
+        
+        ... on StudentQuoteOptionCourseItem {
+          offeringPriceItem {
+            durationAmount
+            durationType {
+              codeName
+            }
+            startDate
+            endDate
+            priceAmount
+            priceCurrency {
+              code
+            }
+          }
+          courseSnapshot {
+            offeringCourseCategory {
+              codeName
+            }
+            name
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+> You can copy and paste this cURL command to test it out!
+
+```shell
+curl 'https://api.edvisor.io/graphql' 
+  -H 'Authorization: Bearer <your_edvisor_api_key>' \
+  -H 'Content-Type: application/json' \
+  --data-binary '{"query":"query {\n  studentQuote(studentQuoteId:<your_quote_id>) {\n    studentQuoteId\n    studentQuoteOptions {\n      studentQuoteOptionItems {\n        __typename\n        \n        ... on StudentQuoteOptionCourseItem {\n          offeringPriceItem {\n            durationAmount\n            durationType {\n              codeName\n            }\n            startDate\n            endDate\n            priceAmount\n            priceCurrency {\n              code\n            }\n          }\n          courseSnapshot {\n            offeringCourseCategory {\n              codeName\n            }\n            name\n          }\n        }\n      }\n    }\n  }\n}","variables":null}' 
+  --compressed 
+```
+
+> To fetch all the fee information on a quote
+
+```
+query {
+  studentQuote(studentQuoteId:1) {
+    studentQuoteId
+    studentQuoteOptions {
+      studentQuoteOptionItems {
+        __typename
+        
+        ... on StudentQuoteOptionFeeItem {
+          appliedFeePriceItem {
+            startDate
+            endDate
+            priceAmount
+            priceCurrency {
+              code
+            }
+          }
+          feeSnapshot {
+            name
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+> You can copy and paste this cURL command to test it out!
+
+```shell
+curl 'https://api.edvisor.io/graphql' 
+  -H 'Authorization: Bearer <your_edvisor_api_key>' \
+  -H 'Content-Type: application/json' \
+  --data-binary '{"query":"query {\n  studentQuote(studentQuoteId:<your_quote_id>) {\n    studentQuoteId\n    studentQuoteOptions {\n      studentQuoteOptionItems {\n        __typename\n        \n        ... on StudentQuoteOptionFeeItem {\n          appliedFeePriceItem {\n            startDate\n            endDate\n            priceAmount\n            priceCurrency {\n              code\n            }\n          }\n          feeSnapshot {\n            name\n          }\n        }\n      }\n    }\n  }\n}","variables":null}' 
+  --compressed 
+```
+
+As an agency customer, you can retrieve data on any of the quotes that you have previously created. Please see the example on the right.
+
+The example to the right shows only how to fetch information for the courses and fees attached to your quote. There are many more objects that you can fetch in addition to course information. Please see the documentation on the following objects for a full description of what data is available to you:
+
+* <a href='http://docs.edvisor.io/schema/studentquoteoptioncourseitem.doc.html'>StudentQuoteOptionCourseItem</a>
+* <a href='http://docs.edvisor.io/schema/studentquoteoptionaccommodationitem.doc.html'>StudentQuoteOptionAccommodationItem</a>
+* <a href='http://docs.edvisor.io/schema/studentquoteoptionserviceitem.doc.html'>StudentQuoteOptionServiceItem</a>
+* <a href='http://docs.edvisor.io/schema/studentquoteoptionfeeitem.doc.html'>StudentQuoteOptionFeeItem</a>
+* <a href='http://docs.edvisor.io/schema/studentquoteoptiondiscountitem.doc.html'>StudentQuoteOptionDiscountItem</a>

@@ -63,6 +63,11 @@ to send the webhook once every 15 minutes for up to 3 days.
 * startDateTemplate:update
 * startDateTemplate:delete
 
+### Student Quote
+
+* studentQuote:create
+* studentQuote:update
+
 ## Event Object
 
 The event object that is sent along with the webhook request will be structured like the following:
