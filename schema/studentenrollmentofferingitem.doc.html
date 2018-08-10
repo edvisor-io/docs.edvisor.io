@@ -190,6 +190,11 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Interfaces</h4>
     <ul>
+        <li  title="StudentEnrollmentOfferingItemInterface">
+            <a href="studentenrollmentofferingiteminterface.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                StudentEnrollmentOfferingItemInterface
+            </a>
+        </li>
         <li  title="StudentQuoteOptionItemInterface">
             <a href="studentquoteoptioniteminterface.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 StudentQuoteOptionItemInterface
@@ -218,6 +223,11 @@
         <li  title="QuotePriceItem">
             <a href="quotepriceitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 QuotePriceItem
+            </a>
+        </li>
+        <li class="slds-is-active" title="StudentEnrollmentOfferingItem">
+            <a href="studentenrollmentofferingitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                StudentEnrollmentOfferingItem
             </a>
         </li>
         <li  title="StudentQuoteOptionItem">
@@ -755,6 +765,11 @@
                 OfferingType
             </a>
         </li>
+        <li  title="OldStudentEnrollmentOfferingItem">
+            <a href="oldstudentenrollmentofferingitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                OldStudentEnrollmentOfferingItem
+            </a>
+        </li>
         <li  title="OtherOfferingDiscountItem">
             <a href="otherofferingdiscountitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OtherOfferingDiscountItem
@@ -1030,9 +1045,24 @@
                 StudentEnrollment
             </a>
         </li>
-        <li class="slds-is-active" title="StudentEnrollmentOfferingItem">
-            <a href="studentenrollmentofferingitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                StudentEnrollmentOfferingItem
+        <li  title="StudentEnrollmentListResultInterface">
+            <a href="studentenrollmentlistresultinterface.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                StudentEnrollmentListResultInterface
+            </a>
+        </li>
+        <li  title="StudentEnrollmentOfferingAccommodationItem">
+            <a href="studentenrollmentofferingaccommodationitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                StudentEnrollmentOfferingAccommodationItem
+            </a>
+        </li>
+        <li  title="StudentEnrollmentOfferingCourseItem">
+            <a href="studentenrollmentofferingcourseitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                StudentEnrollmentOfferingCourseItem
+            </a>
+        </li>
+        <li  title="StudentEnrollmentOfferingServiceItem">
+            <a href="studentenrollmentofferingserviceitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                StudentEnrollmentOfferingServiceItem
             </a>
         </li>
         <li  title="StudentEnrollmentPreview">
@@ -1795,6 +1825,11 @@
                 StudentEnrollmentInput
             </a>
         </li>
+        <li  title="StudentEnrollmentListFilterInput">
+            <a href="studentenrollmentlistfilterinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                StudentEnrollmentListFilterInput
+            </a>
+        </li>
         <li  title="StudentEnrollmentOfferingItemInput">
             <a href="studentenrollmentofferingiteminput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 StudentEnrollmentOfferingItemInput
@@ -1960,7 +1995,7 @@
         </div>
     </div>
     <div class="container">
-        <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
+        <p class="slds-text-title--caps slds-text-color--weak">UNION</p>
         <h1 class="slds-text-heading--large">StudentEnrollmentOfferingItem</h1>
         <div class="slds-text-body--regular"></div>
     </div>
@@ -1973,7 +2008,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">StudentEnrollmentOfferingItem</span> {</li><li></li><li><span class="tab"><span class="meta">studentEnrollmentOfferingItemId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">studentEnrollmentId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">snapshotOfferingName</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringPackageOptionItemId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">snapshotOfferingPackageName</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">snapshotOfferingCourseCategoryId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">snapshotOfferingAccommodationCategoryId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">snapshotIntensityDurationAmount</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">snapshotIntensityDurationTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">snapshotIntensityPerDurationTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">startDate</span>: <a class="support type" href="dateonly.doc.html">DateOnly</a> </span></li><li></li><li><span class="tab"><span class="meta">endDate</span>: <a class="support type" href="dateonly.doc.html">DateOnly</a> </span></li><li></li><li><span class="tab"><span class="meta">durationAmount</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">durationTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">roomTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">bathroomTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">mealTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">serviceQuantity</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">modified</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">snapshotOfferingCourseCategory</span>: <a class="support type" href="offeringcoursecategory.doc.html">OfferingCourseCategory</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:28px"><li><span class="keyword operator ts">union</span> <span class="identifier">StudentEnrollmentOfferingItem</span> = <a class="support type" href="studentenrollmentofferingcourseitem.doc.html">StudentEnrollmentOfferingCourseItem</a> | <a class="support type" href="studentenrollmentofferingaccommodationitem.doc.html">StudentEnrollmentOfferingAccommodationItem</a> | <a class="support type" href="studentenrollmentofferingserviceitem.doc.html">StudentEnrollmentOfferingServiceItem</a></li></ul></code>
     </div>
 </section>
 <section>
@@ -1984,7 +2019,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="query.doc.html" title="Query - ">Query<em>null</em></a><li><li><a href="studentenrollment.doc.html" title="StudentEnrollment - ">StudentEnrollment<em>null</em></a><li><li><a href="studentenrollmentpreview.doc.html" title="StudentEnrollmentPreview - ">StudentEnrollmentPreview<em>null</em></a><li></ul>
+        <ul class="require-by"><li><a href="studentenrollment.doc.html" title="StudentEnrollment - ">StudentEnrollment<em>null</em></a><li></ul>
     </div>
 </section>
 <footer>
