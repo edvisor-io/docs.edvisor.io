@@ -15,6 +15,9 @@ To access our API, please contact us at <a href='mailto:support@edvisor.io'>supp
 
 You can test drive your GraphQL queries and mutations directly from here: <a href='https://www.graphqlbin.com/' target='_blank'>https://www.graphqlbin.com/</a>. When it prompts you to enter the endpoint URL please use `https://api.edvisor.io/graphql`
 
+<img src='/images/step1.gif'>
+<img src='/images/step2.gif'>
+
 <aside class="notice">
 Please remember to set the "Authorization" header with your API key.
 </aside>
