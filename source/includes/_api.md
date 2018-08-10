@@ -11,7 +11,13 @@ A full list of all the available queries can be found here: <a href='http://docs
 
 To access our API, please contact us at <a href='mailto:support@edvisor.io'>support@edvisor.io</a>.
 
+## GraphQL Playground
 
+You can test drive your GraphQL queries and mutations directly from here: <a href='https://www.graphqlbin.com/' target='_blank'>https://www.graphqlbin.com/</a>. When it prompts you to enter the endpoint URL please use `https://api.edvisor.io/graphql`
+
+<aside class="notice">
+Please remember to set the "Authorization" header with your API key.
+</aside>
 
 ## Accessing the price of a course
 
