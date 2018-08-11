@@ -652,6 +652,70 @@ Please remember to set the &ldquo;Authorization&rdquo; header with your API key.
 <li><a href='http://docs.edvisor.io/schema/studentquoteoptiondiscountitem.doc.html'>StudentQuoteOptionDiscountItem</a></li>
 </ul>
 
+<h2 id="viewing-a-studentenrollment">Viewing a StudentEnrollment</h2>
+
+<blockquote>
+<p>To fetch all the salient details of a student enrollment</p>
+</blockquote>
+<pre class="highlight plaintext"><code>query {
+  studentEnrollment(studentEnrollmentId: 1) {
+    studentEnrollmentId
+    agencyOwnerId
+    sent
+    studentEnrollmentOfferingItems {
+      ... on StudentEnrollmentOfferingCourseItem {
+        offeringTypeId
+        courseSnapshot {
+          offeringCourseCategory {
+            offeringCourseCategoryId
+            codeName
+          }
+          name
+        }
+      }
+      ... on StudentEnrollmentOfferingCourseItem {
+        accommodationSnapshot {
+          bathroomType {
+            bathroomTypeId
+            codeName
+          }
+          offeringId
+          offeringAccommodationCategoryId
+          name
+        }
+      }
+      ... on StudentEnrollmentOfferingServiceItem {
+        offeringTypeId
+        serviceSnapshot {
+          offeringId
+        }
+      }
+    }
+  }
+}
+</code></pre>
+
+<blockquote>
+<p>You can copy and paste this cURL command to test it out!</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.edvisor.io/graphql'</span> 
+  -H <span class="s1">'Authorization: Bearer &lt;your_edvisor_api_key&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  --data-binary <span class="s1">'{"query":"query {\n  studentQuote(studentQuoteId: 42157) {\n    studentQuoteId\n\n    studentQuoteOptions {\n      studentQuoteOptionId\n      \n      studentQuoteOptionItems {\n        ... on StudentQuoteOptionCourseItem {\n          studentQuoteOptionId\n        }\n      }\n    }\n  }\n  \n  studentEnrollment(studentEnrollmentId: 11722) {\n    studentEnrollmentId\n    studentEnrollmentStatusId\n    studentEnrollmentDecisionStatusId\n    schoolId\n    studentId\n    invoiceId\n    quoteId\n    languageId\n    obscuredId\n    studentSignature\n    signedDate\n    specialInstructions\n    created\n    modified\n    agencyOwnerId\n    schoolOwnerId\n    sent\n    isDeletedByAgency\n    isDeletedBySchool\n    studentEnrollmentOfferingItems {\n      ... on StudentEnrollmentOfferingAccommodationItem {\n        accommodationSnapshot {\n          offeringId\n          offeringAccommodationCategoryId\n          name\n        }\n      }\n      ... on StudentEnrollmentOfferingCourseItem {\n        offeringTypeId\n        studentEnrollmentOfferingItemId\n        courseSnapshot {\n          offeringId\n          offeringCourseCategoryId\n          name\n        }\n      }\n    }\n  }\n}","variables":null}'</span>
+  --compressed 
+</code></pre>
+
+<p>As an agency customer, you can retrieve data on any of the student enrollments that have been created through Edvisor. Please
+see the example on the right. Student enrollments are variously called &ldquo;applications&rdquo; or &ldquo;bookings&rdquo; in the industry.</p>
+
+<p>The example to the right shows only how to fetch information for the courses, accommodations, and services attached to the student enrollment. For more details as to which fields are available on which objects, consult the schema documentation. </p>
+
+<ul>
+<li><a href='http://docs.edvisor.io/schema/studentenrollmentofferingcourseitem.doc.html'>StudentEnrollmentOfferingCourseItem</a></li>
+<li><a href='http://docs.edvisor.io/schema/studentenrollmentofferingaccommodationitem.doc.html'>StudentEnrollmentOfferingAccommodationItem</a></li>
+<li><a href='http://docs.edvisor.io/schema/studentenrollmentofferingserviceitem.doc.html'>StudentEnrollmentOfferingServiceItem</a></li>
+</ul>
+
           <h1 id="errors">Errors</h1>
 
 <p>Edvisor.io will respond with a 200 success code even if there are operational errors. This follows the GraphQL specification. All errors will be described in an <code class="prettyprint">errors</code> array in the response.</p>
