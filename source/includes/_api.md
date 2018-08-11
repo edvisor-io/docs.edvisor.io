@@ -279,3 +279,65 @@ The example to the right shows only how to fetch information for the courses and
 * <a href='http://docs.edvisor.io/schema/studentquoteoptionserviceitem.doc.html'>StudentQuoteOptionServiceItem</a>
 * <a href='http://docs.edvisor.io/schema/studentquoteoptionfeeitem.doc.html'>StudentQuoteOptionFeeItem</a>
 * <a href='http://docs.edvisor.io/schema/studentquoteoptiondiscountitem.doc.html'>StudentQuoteOptionDiscountItem</a>
+
+## Viewing a StudentEnrollment
+
+> To fetch all the salient details of a student enrollment
+
+```
+query {
+  studentEnrollment(studentEnrollmentId: 1) {
+    studentEnrollmentId
+    agencyOwnerId
+    sent
+    studentEnrollmentOfferingItems {
+      ... on StudentEnrollmentOfferingCourseItem {
+        offeringTypeId
+        courseSnapshot {
+          offeringCourseCategory {
+            offeringCourseCategoryId
+            codeName
+          }
+          name
+        }
+      }
+      ... on StudentEnrollmentOfferingCourseItem {
+        accommodationSnapshot {
+          bathroomType {
+            bathroomTypeId
+            codeName
+          }
+          offeringId
+          offeringAccommodationCategoryId
+          name
+        }
+      }
+      ... on StudentEnrollmentOfferingServiceItem {
+        offeringTypeId
+        serviceSnapshot {
+          offeringId
+        }
+      }
+    }
+  }
+}
+```
+
+> You can copy and paste this cURL command to test it out!
+
+```shell
+curl 'https://api.edvisor.io/graphql' 
+  -H 'Authorization: Bearer <your_edvisor_api_key>' \
+  -H 'Content-Type: application/json' \
+  --data-binary '{"query":"query {\n  studentQuote(studentQuoteId: 42157) {\n    studentQuoteId\n\n    studentQuoteOptions {\n      studentQuoteOptionId\n      \n      studentQuoteOptionItems {\n        ... on StudentQuoteOptionCourseItem {\n          studentQuoteOptionId\n        }\n      }\n    }\n  }\n  \n  studentEnrollment(studentEnrollmentId: 11722) {\n    studentEnrollmentId\n    studentEnrollmentStatusId\n    studentEnrollmentDecisionStatusId\n    schoolId\n    studentId\n    invoiceId\n    quoteId\n    languageId\n    obscuredId\n    studentSignature\n    signedDate\n    specialInstructions\n    created\n    modified\n    agencyOwnerId\n    schoolOwnerId\n    sent\n    isDeletedByAgency\n    isDeletedBySchool\n    studentEnrollmentOfferingItems {\n      ... on StudentEnrollmentOfferingAccommodationItem {\n        accommodationSnapshot {\n          offeringId\n          offeringAccommodationCategoryId\n          name\n        }\n      }\n      ... on StudentEnrollmentOfferingCourseItem {\n        offeringTypeId\n        studentEnrollmentOfferingItemId\n        courseSnapshot {\n          offeringId\n          offeringCourseCategoryId\n          name\n        }\n      }\n    }\n  }\n}","variables":null}'
+  --compressed 
+```
+
+As an agency customer, you can retrieve data on any of the student enrollments that have been created through Edvisor. Please
+see the example on the right. Student enrollments are variously called "applications" or "bookings" in the industry.
+
+The example to the right shows only how to fetch information for the courses, accommodations, and services attached to the student enrollment. For more details as to which fields are available on which objects, consult the schema documentation. 
+
+* <a href='http://docs.edvisor.io/schema/studentenrollmentofferingcourseitem.doc.html'>StudentEnrollmentOfferingCourseItem</a>
+* <a href='http://docs.edvisor.io/schema/studentenrollmentofferingaccommodationitem.doc.html'>StudentEnrollmentOfferingAccommodationItem</a>
+* <a href='http://docs.edvisor.io/schema/studentenrollmentofferingserviceitem.doc.html'>StudentEnrollmentOfferingServiceItem</a>
