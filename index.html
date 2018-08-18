@@ -716,6 +716,165 @@ see the example on the right. Student enrollments are variously called &ldquo;ap
 <li><a href='http://docs.edvisor.io/schema/studentenrollmentofferingserviceitem.doc.html'>StudentEnrollmentOfferingServiceItem</a></li>
 </ul>
 
+<h2 id="viewing-an-invoice">Viewing an Invoice</h2>
+
+<blockquote>
+<p>Fetch invoices by ID or based on a filtered search</p>
+</blockquote>
+<pre class="highlight plaintext"><code>query {
+    invoice(invoiceId: 1) {
+      invoiceId
+      externalId
+      invoiceTypeId
+      ownerId
+      studentId
+      studentNationalityId
+      studentMinAge
+      studentMaxAge
+      partnershipId
+      invoiceStatusId
+      invoicePaymentStatusId
+      isOverdue
+      notes
+      viewed
+      issued
+      expires
+      paymentCurrencyId
+      depositCurrencyId
+      depositAmount
+      depositIsPercentage
+      depositDateDue
+      depositIsRequired
+      languageId
+      obscuredId
+      createdByUserId
+      lastUpdatedByUserId
+      created
+      modified
+    rawItems {
+      invoiceItemId
+      invoiceId
+      invoiceItemTypeId
+      offeringId
+      promotionId
+      snapshotPromotionTypeId
+      snapshotExtensionDurationTypeId
+      snapshotFreeDurationAmount
+      snapshotBonusDurationAmount
+      snapshotPromotionApplicableTypeId
+      snapshotPromotionSecondaryTypeId
+      snapshotPromotionPercentage
+      feeId
+      isAgencyItem
+      isGlobalFee
+      position
+      school
+      program
+      durationAmount
+      durationTypeId
+      notes
+      startDate
+      endDate
+      googlePlaceId
+      currencyId
+      amount
+      isAmountPerDuration
+      serviceFeeMultiplier
+      partnershipId
+      partnershipOfferingId
+      created
+      modified
+    }
+    invoiceFiles {
+      fileId
+      uploaderUserId
+      mimeType
+      fileExtension
+      name
+      path
+      url
+      created
+      modified
+    }
+    invoiceType {
+      invoiceTypeId
+      codeName
+    }
+    paymentCurrency {
+      currencyId
+      code
+      symbol
+      oneUsd
+      enabled
+      created
+      modified
+    }
+    } 
+}
+</code></pre>
+
+<blockquote>
+<p>You can copy and paste this cURL command to test it out!</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.edvisor.io/graphql'</span> 
+  -H <span class="s1">'Authorization: Bearer &lt;your_edvisor_api_key&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  --data-binary <span class="s1">'{"query":"query {\n\tinvoice(invoiceId: 24157) {\n\t  invoiceId\n\t  externalId\n\t  invoiceTypeId\n\t  ownerId\n\t  studentId\n\t  studentNationalityId\n\t  studentMinAge\n\t  studentMaxAge\n\t  partnershipId\n\t  invoiceStatusId\n\t  invoicePaymentStatusId\n\t  isOverdue\n\t  notes\n\t  viewed\n\t  issued\n\t  expires\n\t  paymentCurrencyId\n\t  depositCurrencyId\n\t  depositAmount\n\t  depositIsPercentage\n\t  depositDateDue\n\t  depositIsRequired\n\t  languageId\n\t  obscuredId\n\t  createdByUserId\n\t  lastUpdatedByUserId\n\t  created\n\t  modified\n    rawItems {\n      invoiceItemId\n      invoiceId\n      invoiceItemTypeId\n      offeringId\n      promotionId\n      snapshotPromotionTypeId\n      snapshotExtensionDurationTypeId\n      snapshotFreeDurationAmount\n      snapshotBonusDurationAmount\n      snapshotPromotionApplicableTypeId\n      snapshotPromotionSecondaryTypeId\n      snapshotPromotionPercentage\n      feeId\n      isAgencyItem\n      isGlobalFee\n      position\n      school\n      program\n      durationAmount\n      durationTypeId\n      notes\n      startDate\n      endDate\n      googlePlaceId\n      currencyId\n      amount\n      isAmountPerDuration\n      serviceFeeMultiplier\n      partnershipId\n      partnershipOfferingId\n      created\n      modified\n    }\n    invoiceFiles {\n      fileId\n      uploaderUserId\n      mimeType\n      fileExtension\n      name\n      path\n      url\n      created\n      modified\n    }\n    invoiceType {\n      invoiceTypeId\n      codeName\n    }\n    paymentCurrency {\n      currencyId\n      code\n      symbol\n      oneUsd\n      enabled\n      created\n      modified\n    }\n\t} \n}","variables":null}'</span>
+  --compressed 
+</code></pre>
+
+<p>As an agency customer, you can retrieve data on any of the invoices that have been created through Edvisor. Please
+see the example on the right. You can structure the query to get additional info on the invoice, such as any files
+associated with it, any invoice items (referred to as raw items), the invoice type, and the payment currency.</p>
+
+<p>There are two different endpoints to query invoices, either by Invoice Id or using a filtered search. </p>
+
+<p>The following parameters are available for the filtered search:
+<ul>
+  <li>agencyIds: number []</li>
+  <li>invoiceIds: number []</li>
+  <li>externalIds: number []</li>
+  <li>created: DateOnlyRangeInput</li>
+</ul></p>
+
+<p>This query also takes a pagination input, which is an object with an offset and a limit field.</p>
+
+<p>The example on the right shows a filtered search using agencyIds and the created parameter.</p>
+
+<p>The created parameter can take the following filters:
+<ul>
+  <li>gte: greater than or equal</li>
+  <li>gt: greater than</li>
+  <li>lte: less than or equal</li>
+  <li>lt: less than</li>
+  <li>eq: equal</li>
+</ul></p>
+<pre class="highlight plaintext"><code>query {
+  invoiceList(
+  pagination: { limit: 100, offset:0 }, 
+  filter: {
+    agencyIds: [1, 2],
+    created: {
+      gt: "2018-01-31"
+    }
+  }) {
+    count
+    data {
+      ...
+    } 
+  }
+
+}
+</code></pre>
+
+<p>For more details as to which fields are available on which objects, consult the schema documentation. </p>
+
+<ul>
+<li><a href='http://docs.edvisor.io/schema/invoice.doc.html'>Invoice</a></li>
+<li><a href='http://docs.edvisor.io/schema/invoiceitem.doc.html'>InvoiceItem</a></li>
+<li><a href='http://docs.edvisor.io/schema/invoicepayment.doc.html'>InvoicePayment</a></li>
+</ul>
+
           <h1 id="errors">Errors</h1>
 
 <p>Edvisor.io will respond with a 200 success code even if there are operational errors. This follows the GraphQL specification. All errors will be described in an <code class="prettyprint">errors</code> array in the response.</p>
