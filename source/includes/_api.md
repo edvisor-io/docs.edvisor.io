@@ -498,5 +498,5 @@ query {
 For more details as to which fields are available on which objects, consult the schema documentation. 
 
 * <a href='http://docs.edvisor.io/schema/invoice.doc.html'>Invoice</a>
-* <a href='http://docs.edvisor.io/schema/invoiceItem.doc.html'>InvoiceItem</a>
-* <a href='http://docs.edvisor.io/schema/invoicePayment.doc.html'>InvoicePayment</a>
+* <a href='http://docs.edvisor.io/schema/invoiceitem.doc.html'>InvoiceItem</a>
+* <a href='http://docs.edvisor.io/schema/invoicepayment.doc.html'>InvoicePayment</a>
