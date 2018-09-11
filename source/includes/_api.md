@@ -560,7 +560,7 @@ Examples of how to use the `upsertAgencyCompanyCurrencyRates` endpoint and its e
   }
 ```
 
-> Alternatively, if you do not know the IDs for each currency, you can use the currency code. For example:
+> Alternatively, if you do not know the IDs for each currency, you can use the currency code (all caps). For example:
 
 ```
 {
@@ -576,6 +576,6 @@ Examples of how to use the `upsertAgencyCompanyCurrencyRates` endpoint and its e
 curl 'https://api.edvisor.io/graphql' 
   -H 'Authorization: Bearer <your_edvisor_api_key>' \
   -H 'Content-Type: application/json' \
-  --data-binary '{"query":"mutation updateCurrencyRate($input: [AgencyCompanyCurrencyRateInput]){\n  upsertAgencyCompanyCurrencyRates(input: $input) {\n    agencyCompanyId\n    fromCurrencyId\n    toCurrencyId\n    rate\n    created\n    modified\n  }\n}","variables":{"input":[{"fromCurrencyId":8,"toCurrencyCode":"xpf","rate":69.8},{"fromCurrencyId":8,"toCurrencyId":154,"rate":42.69},{"fromCurrencyId":8,"toCurrencyId":155,"rate":19.69}]},"operationName":"updateCurrencyRate"}' 
+  --data-binary '{"query":"mutation updateCurrencyRate($input: [AgencyCompanyCurrencyRateInput]){\n  upsertAgencyCompanyCurrencyRates(input: $input) {\n    agencyCompanyId\n    fromCurrencyId\n    toCurrencyId\n    rate\n    created\n    modified\n  }\n}","variables":{"input":[{"fromCurrencyId":8,"toCurrencyCode":"XPF","rate":69.8},{"fromCurrencyId":8,"toCurrencyId":154,"rate":42.69},{"fromCurrencyId":8,"toCurrencyId":155,"rate":19.69}]},"operationName":"updateCurrencyRate"}' 
   --compressed
 ```
