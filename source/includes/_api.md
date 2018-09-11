@@ -500,3 +500,82 @@ For more details as to which fields are available on which objects, consult the 
 * <a href='http://docs.edvisor.io/schema/invoice.doc.html'>Invoice</a>
 * <a href='http://docs.edvisor.io/schema/invoiceitem.doc.html'>InvoiceItem</a>
 * <a href='http://docs.edvisor.io/schema/invoicepayment.doc.html'>InvoicePayment</a>
+
+
+## Agency Company Currency Exchange Rates
+
+> Easily query your Agency Company Exchange Rates and update them as needed
+
+This is an example query object with details on the `fromCurrency` object
+
+```
+  agencyCompanyCurrencyRates {
+    agencyCompanyId
+    fromCurrencyId
+    toCurrencyId
+    rate
+    created
+    modified
+    fromCurrency {
+      currencyId
+      code
+      symbol
+      oneUsd
+      enabled
+      created
+      modified
+    }
+  }
+```
+
+> You can copy and paste the following cURL command to test it out
+
+```shell
+curl 'https://api.edvisor.io/graphql' 
+  -H 'Authorization: Bearer <your_edvisor_api_key>' \
+  -H 'Content-Type: application/json' \
+  -data-binary '{"query":"query {\n  agencyCompanyCurrencyRates {\n    agencyCompanyId\n    fromCurrencyId\n    toCurrencyId\n    rate\n    created\n    modified\n    fromCurrency {\n      currencyId\n      code\n      symbol\n      oneUsd\n      enabled\n      created\n      modified\n    }\n  }\n}","variables":{"input":{"fromCurrencyId":8,"toCurrencyId":157,"rate":0.2}},"operationName":null}' 
+  --compressed
+```
+
+As an agency customer you can make a query to receive the exchange rates set by your agency. 
+The query takes no parameters, and returns all the existing exchange rates for your Agency.
+
+For more details as to which fields are available on which objects, consult the schema documentation. 
+
+* <a href='http://docs.edvisor.io/schema/agencycompanycurrencyrate.doc.html'>AgencyCompanyCurrencyRate</a>
+
+Using the currency API you can also update the exchange rates for your Agency Company. The endpoint takes an array of
+objects, so you can update multiple currencies with one simple request. 
+
+Examples of how to use the `upsertAgencyCompanyCurrencyRates` endpoint and its expected input are on the right.
+
+> The input to update the currencies is as follows:
+
+```
+{
+    "fromCurrencyId": 8,
+    "toCurrencyId": 157,
+    "rate": 0.2
+  }
+```
+
+> Alternatively, if you do not know the IDs for each currency, you can use the currency code (all caps). For example:
+
+```
+{
+    "fromCurrencyCode": "CAD",
+    "toCurrencyCode": "USD",
+    "rate": 0.75
+}
+```
+
+> You can use either the currency code or the ID. Here is an example of a cURL request to update two currencies:
+
+```shell
+curl 'https://api.edvisor.io/graphql' 
+  -H 'Authorization: Bearer <your_edvisor_api_key>' \
+  -H 'Content-Type: application/json' \
+  --data-binary '{"query":"mutation updateCurrencyRate($input: [AgencyCompanyCurrencyRateInput]){\n  upsertAgencyCompanyCurrencyRates(input: $input) {\n    agencyCompanyId\n    fromCurrencyId\n    toCurrencyId\n    rate\n    created\n    modified\n  }\n}","variables":{"input":[{"fromCurrencyId":8,"toCurrencyCode":"XPF","rate":69.8},{"fromCurrencyId":8,"toCurrencyId":154,"rate":42.69},{"fromCurrencyId":8,"toCurrencyId":155,"rate":19.69}]},"operationName":"updateCurrencyRate"}' 
+  --compressed
+```
