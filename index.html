@@ -875,6 +875,86 @@ associated with it, any invoice items (referred to as raw items), the invoice ty
 <li><a href='http://docs.edvisor.io/schema/invoicepayment.doc.html'>InvoicePayment</a></li>
 </ul>
 
+<h2 id="agency-company-currency-exchange-rates">Agency Company Currency Exchange Rates</h2>
+
+<blockquote>
+<p>Easily query your Agency Company Exchange Rates and update them as needed</p>
+</blockquote>
+
+<p>This is an example query object with details on the <code class="prettyprint">fromCurrency</code> object</p>
+<pre class="highlight plaintext"><code>  agencyCompanyCurrencyRates {
+    agencyCompanyId
+    fromCurrencyId
+    toCurrencyId
+    rate
+    created
+    modified
+    fromCurrency {
+      currencyId
+      code
+      symbol
+      oneUsd
+      enabled
+      created
+      modified
+    }
+  }
+</code></pre>
+
+<blockquote>
+<p>You can copy and paste the following cURL command to test it out</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.edvisor.io/graphql'</span> 
+  -H <span class="s1">'Authorization: Bearer &lt;your_edvisor_api_key&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  -data-binary <span class="s1">'{"query":"query {\n  agencyCompanyCurrencyRates {\n    agencyCompanyId\n    fromCurrencyId\n    toCurrencyId\n    rate\n    created\n    modified\n    fromCurrency {\n      currencyId\n      code\n      symbol\n      oneUsd\n      enabled\n      created\n      modified\n    }\n  }\n}","variables":{"input":{"fromCurrencyId":8,"toCurrencyId":157,"rate":0.2}},"operationName":null}'</span> 
+  --compressed
+</code></pre>
+
+<p>As an agency customer you can make a query to receive the exchange rates set by your agency. 
+The query takes no parameters, and returns all the existing exchange rates for your Agency.</p>
+
+<p>For more details as to which fields are available on which objects, consult the schema documentation. </p>
+
+<ul>
+<li><a href='http://docs.edvisor.io/schema/agencycompanycurrencyrate.doc.html'>AgencyCompanyCurrencyRate</a></li>
+</ul>
+
+<p>Using the currency API you can also update the exchange rates for your Agency Company. The endpoint takes an array of
+objects, so you can update multiple currencies with one simple request. </p>
+
+<p>Examples of how to use the <code class="prettyprint">upsertAgencyCompanyCurrencyRates</code> endpoint and its expected input are on the right.</p>
+
+<blockquote>
+<p>The input to update the currencies is as follows:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"fromCurrencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"toCurrencyId"</span><span class="p">:</span><span class="w"> </span><span class="mi">157</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Alternatively, if you do not know the IDs for each currency, you can use the currency code (all caps). For example:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"fromCurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CAD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"toCurrencyCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.75</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>You can use either the currency code or the ID. Here is an example of a cURL request to update two currencies:</p>
+</blockquote>
+<pre class="highlight shell"><code>curl <span class="s1">'https://api.edvisor.io/graphql'</span> 
+  -H <span class="s1">'Authorization: Bearer &lt;your_edvisor_api_key&gt;'</span> <span class="se">\</span>
+  -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+  --data-binary <span class="s1">'{"query":"mutation updateCurrencyRate($input: [AgencyCompanyCurrencyRateInput]){\n  upsertAgencyCompanyCurrencyRates(input: $input) {\n    agencyCompanyId\n    fromCurrencyId\n    toCurrencyId\n    rate\n    created\n    modified\n  }\n}","variables":{"input":[{"fromCurrencyId":8,"toCurrencyCode":"XPF","rate":69.8},{"fromCurrencyId":8,"toCurrencyId":154,"rate":42.69},{"fromCurrencyId":8,"toCurrencyId":155,"rate":19.69}]},"operationName":"updateCurrencyRate"}'</span> 
+  --compressed
+</code></pre>
+
           <h1 id="errors">Errors</h1>
 
 <p>Edvisor.io will respond with a 200 success code even if there are operational errors. This follows the GraphQL specification. All errors will be described in an <code class="prettyprint">errors</code> array in the response.</p>
