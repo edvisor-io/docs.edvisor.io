@@ -640,6 +640,219 @@ Please remember to set the &ldquo;Authorization&rdquo; header with your API key.
   --compressed 
 </code></pre>
 
+<blockquote>
+<p>To fetch almost everything on a quote</p>
+</blockquote>
+<pre class="highlight plaintext"><code>query ($studentQuoteId: Int!) {
+  studentQuote(studentQuoteId: $studentQuoteId) {
+    studentQuoteId
+    # optional: add any student quote field
+    studentQuoteStatus {
+      studentQuoteStatusId
+      codeName
+    }
+    agency {
+      agencyId
+      # optional: add any agency field
+    }
+    student {
+      studentId
+      # optional: add any student field
+    }
+    agentUser {
+      userId
+      # optional: add any user field 
+    }
+    language {
+      code
+    }
+    filterStudentCurrentCountry {
+      countryId
+      code
+    }
+    filterEligibleStudentNationalityCountry {
+      countryId
+      code
+    }
+    studentQuoteOptions {
+      name
+      isAccepted
+      totalPrice
+      priceCurrencyId
+      notes
+      priceCurrency {
+        currencyId
+        code
+        symbol
+      }
+      studentQuoteOptionItems {
+        ... on StudentQuoteOptionCourseItem {
+          studentQuoteOptionItemId
+          studentQuoteOptionItemTypeId
+          studentQuoteOptionItemType {
+            studentQuoteOptionItemTypeId
+            codeName
+          }
+          isAgencyItem
+          offeringPriceItem {
+            offeringId
+            durationAmount
+            durationTypeId
+            startDate
+            endDate
+          }
+          courseSnapshot {
+            offeringId
+            offeringCourseCategoryId
+            name
+          }
+        }
+        ... on StudentQuoteOptionAccommodationItem {
+          studentQuoteOptionItemId
+          studentQuoteOptionItemTypeId
+          studentQuoteOptionItemType {
+            studentQuoteOptionItemTypeId
+            codeName
+          }
+          isAgencyItem
+          offeringPriceItem {
+            offeringId
+            durationAmount
+            durationTypeId
+            startDate
+            endDate
+          }
+          accommodationSnapshot {
+            offeringId
+            offeringAccommodationCategoryId
+            bathroomTypeId
+            roomTypeId
+            mealTypeId
+            name
+          }
+        }
+        ... on StudentQuoteOptionServiceItem {
+          studentQuoteOptionItemId
+          studentQuoteOptionItemType {
+            codeName
+          }
+          isAgencyItem
+          offeringPriceItem {
+            offeringId
+            durationAmount
+            durationTypeId
+            startDate
+            endDate
+          }
+          serviceSnapshot {
+            offeringId
+            serviceQuantity
+            name
+          }
+        }
+        ... on StudentQuoteOptionFeeItem {
+          studentQuoteOptionItemId
+          studentQuoteOptionItemType {
+            codeName
+          }
+          isAgencyItem
+          appliedFeePriceItem {
+            feeId
+            appliedToOfferingId
+            durationAmount
+            durationTypeId
+            startDate
+            endDate
+          }
+          feeSnapshot {
+            feeId
+            name
+          }
+        }
+        ... on StudentQuoteOptionDiscountItem {
+          studentQuoteOptionItemId
+          studentQuoteOptionItemType {
+            codeName
+          }
+          isAgencyItem
+          promotionSnapshot {
+            promotionId
+            name
+          }
+          appliedDiscountPriceItem {
+            ... on AppliedAmountOffDiscountPriceItem {
+              promotionId
+              promotion {
+                name
+              }
+              priceAmount
+              priceCurrency {
+                currencyId
+                code
+                symbol
+              }
+              appliedToOffering {
+                offeringId
+                # optional: add any field on an offering
+              }
+              appliedToFee {
+                feeId
+                # optional: add any fee field
+              }
+              endDate
+            }
+            ... on AppliedDurationExtensionDiscountPriceItem {
+              promotionId
+              priceAmount
+              priceCurrency {
+                currencyId
+                code
+                symbol
+              }
+              endDate
+              extensionDurationType {
+                durationTypeId
+                codeName
+              }
+              extensionDurationAmount
+              promotion {
+                name
+              }
+              appliedToOffering {
+                offeringId
+                # optional: add any offering field
+              }
+            }
+            ... on AppliedCustomDiscountPriceItem {
+              promotionId
+              promotion {
+                name
+              }
+              appliedToOffering {
+                offeringId
+                # optional: add any offering field
+              }
+              endDate
+              discountDescription
+            }
+            # ... on moreDiscountPriceItem types will be supported in the future
+          }
+        }
+      }
+      studentQuoteOptionFiles {
+        fileId
+        uploaderUserId
+        mimeType
+        fileExtension
+        name
+        path
+        url
+      }
+    }
+  }
+}
+</code></pre>
+
 <p>As an agency customer, you can retrieve data on any of the quotes that you have previously created. Please see the example on the right.</p>
 
 <p>The example to the right shows only how to fetch information for the courses and fees attached to your quote. There are many more objects that you can fetch in addition to course information. Please see the documentation on the following objects for a full description of what data is available to you:</p>
