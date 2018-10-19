@@ -555,6 +555,110 @@ The example to the right shows only how to fetch information for the courses, ac
 * <a href='http://docs.edvisor.io/schema/studentenrollmentofferingaccommodationitem.doc.html'>StudentEnrollmentOfferingAccommodationItem</a>
 * <a href='http://docs.edvisor.io/schema/studentenrollmentofferingserviceitem.doc.html'>StudentEnrollmentOfferingServiceItem</a>
 
+## Creating a StudentEnrollment
+
+> To create a student enrollment
+
+```
+mutation {
+  createStudentEnrollmentV2(input: {
+    schoolId: 21,
+    studentId: 65333,
+    invoiceId: null,
+    quoteId: null,
+    languageId: 1,
+    studentEnrollmentFieldValues: [
+      {
+        value: "Mbappe",
+        enrollmentDefinedFieldId: 2
+      }, {
+        value: "Kylian",
+        enrollmentDefinedFieldId: 1
+      }, {
+        value: "mbappe@psg.com",
+        enrollmentDefinedFieldId: 3
+      },
+      {
+        value: "MALE",
+        enrollmentDefinedFieldId: 4
+      }
+    ],
+    studentEnrollmentOfferingItems: [
+      {
+        offeringId: 1,
+        startDate: "2018-10-29",
+        durationAmount: 2,
+        durationTypeId: 3
+      },
+      {
+        offeringId: 2,
+        startDate: "2018-10-05",
+        durationAmount: 2,
+        durationTypeId: 3
+    }
+    ]
+  }) {
+    studentEnrollmentId
+    studentEnrollmentStatusId
+    studentEnrollmentDecisionStatusId
+    schoolId
+    studentId
+    invoiceId
+    quoteId
+    languageId
+    obscuredId
+    studentSignature
+    signedDate
+    specialInstructions
+    created
+    modified
+    agencyOwnerId
+    schoolOwnerId
+    sent
+    isDeletedByAgency
+    isDeletedBySchool
+  }
+}
+```
+ 
+As an agency customer, you can create student enrollments through the advisor API. Yadda yadda yadda.
+ 
+ 
+**TODO**
+
+
+  * List required and optional parameters
+  * List errors (validation and otherwise)
+  * Example curl command
+  * Explain Enrollment Defined Fields 
+
+
+## Sending a StudentEnrollment
+
+> To send a student enrollment
+
+
+```
+mutation {
+  sendStudentEnrollment(studentEndrollmentId: 1) {
+    studentEnrollmentId
+    studentEnrollmentStatusId
+  }
+}
+```
+
+As an agency customer, you can send existing student enrollments to the appropriate school. The only parameter necessary is the id of the enrollment you are attempting to send. Enrollments can only be sent once, and this action can't be undone.
+
+The example to the right shows a Graphql mutation for sending a StudentEnrollment. The sendStudentEnrollment mutation returns the StudentEnrollment object that has been sent. Consult the schema documentation for more details about the fields available on a StudentEnrollment object.
+
+**TODO**
+
+  * Curl command?
+  * List Validation errors
+
+
+* <a href='http://docs.edvisor.io/schema/studentenrollment.doc.html'>StudentEnrollment</a>
+
 ## Viewing an Invoice
 
 > Fetch invoices by ID or based on a filtered search
