@@ -621,17 +621,24 @@ mutation {
 }
 ```
  
-As an agency customer, you can create student enrollments through the advisor API. Yadda yadda yadda.
+As an agency customer, you can create student enrollments through the Edvisor API.
  
- 
+The example to the right shows how to create a new StudentEnrollment with four enrollmentFields and two offering items. Consult the schema documentation for more information on EnrollmentDefinedFields and StudentEnrollmentOfferingItems.
+
 **TODO**
 
 
   * List required and optional parameters
   * List errors (validation and otherwise)
-  * Example curl command
+  * Example curl command?
   * Explain Enrollment Defined Fields 
 
+* <a href='http://docs.edvisor.io/schema/enrollmentdefinedfield.doc.html'>EnrollmentDefinedField</a>
+* <a href='http://docs.edvisor.io/schema/studentenrollmentofferingitem.doc.html'>StudentEnrollmentOfferingItem</a>
+* <a href='http://docs.edvisor.io/schema/studentenrollmentofferingiteminterface.doc.html'>StudentEnrollmentOfferingItemInterface</a>
+* <a href='http://docs.edvisor.io/schema/studentenrollmentofferingcourseitem.doc.html'>StudentEnrollmentOfferingCourseItem</a>
+* <a href='http://docs.edvisor.io/schema/studentenrollmentofferingaccommodationitem.doc.html'>StudentEnrollmentOfferingAccommodationItem</a>
+* <a href='http://docs.edvisor.io/schema/studentenrollmentofferingserviceitem.doc.html'>StudentEnrollmentOfferingServiceItem</a>
 
 ## Sending a StudentEnrollment
 
