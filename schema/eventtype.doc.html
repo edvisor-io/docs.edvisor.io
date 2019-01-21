@@ -365,6 +365,11 @@
                 BonusCommissionDiscountItem
             </a>
         </li>
+        <li  title="BookAndLearnAgencyCompany">
+            <a href="bookandlearnagencycompany.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BookAndLearnAgencyCompany
+            </a>
+        </li>
         <li  title="BooleanResult">
             <a href="booleanresult.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 BooleanResult
@@ -548,6 +553,11 @@
         <li  title="FileCaption">
             <a href="filecaption.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 FileCaption
+            </a>
+        </li>
+        <li  title="GeneralAck">
+            <a href="generalack.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                GeneralAck
             </a>
         </li>
         <li  title="GoogleAddressComponent">
@@ -1370,6 +1380,11 @@
                 AgencyFeeInput
             </a>
         </li>
+        <li  title="CreateBookAndLearnAgencyCompanyInput">
+            <a href="createbookandlearnagencycompanyinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CreateBookAndLearnAgencyCompanyInput
+            </a>
+        </li>
         <li  title="CreateBookAndLearnApiKeyInput">
             <a href="createbookandlearnapikeyinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 CreateBookAndLearnApiKeyInput
@@ -1488,6 +1503,11 @@
         <li  title="IntegerRangeInput">
             <a href="integerrangeinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 IntegerRangeInput
+            </a>
+        </li>
+        <li  title="InviteSchoolToConnectInput">
+            <a href="inviteschooltoconnectinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                InviteSchoolToConnectInput
             </a>
         </li>
         <li  title="InvoiceFilter">
@@ -2178,7 +2198,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">enum</span> <span class="identifier">EventType</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_PUBLISH</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_UPDATE</span></span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">enum</span> <span class="identifier">EventType</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_PUBLISH</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CONNECTION_INVITE_REJECTED_BY_SCHOOL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CONNECTION_INVITE_ACCEPTED_BY_SCHOOL</span></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
