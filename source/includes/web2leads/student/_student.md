@@ -102,7 +102,7 @@ customPropertyValues | No | Object[] | NULL | An array of custom property values
 customPropertyValues[].customPropertyFieldId | Yes | String | NULL | The Custom Property Field ID of the custom property you wish to save
 customPropertyValues[].value | Yes | String | NULL | The value you want to save with this custom property. This is required ONLY if the custom property is not a dropdown
 customPropertyValues[].customOptionSelections[] | Yes | String[] | NULL | This is an array of option selections. In the case of a dropdown field, you will only need to pass one value into this array. Note, this is ONLY required if the custom property is a dropdown
-studentCurrentPipelineStage | No | Objecet[] | NULL | An array of pipeline stage ids representing the pipeline stages.
-studentCurrentPipelineStage[].studentPipelineStageId | No | String | NULL | A pipeline stage ID represeting the pipeline stage.
+studentCurrentPipelineStages | No | Object[] | NULL | An array of pipeline stage ids representing the pipeline stages.
+studentCurrentPipelineStages[].studentPipelineStageId | No | String | NULL | A pipeline stage ID representing the pipeline stage.
 
 
