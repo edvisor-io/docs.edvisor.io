@@ -205,6 +205,11 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Interfaces</h4>
     <ul>
+        <li  title="BookingSnapshotLineItemInterface">
+            <a href="bookingsnapshotlineiteminterface.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BookingSnapshotLineItemInterface
+            </a>
+        </li>
         <li  title="StudentEnrollmentOfferingItemInterface">
             <a href="studentenrollmentofferingiteminterface.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 StudentEnrollmentOfferingItemInterface
@@ -223,6 +228,11 @@
         <li  title="AppliedDiscountPriceItem">
             <a href="applieddiscountpriceitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AppliedDiscountPriceItem
+            </a>
+        </li>
+        <li  title="BookingSnapshotLineItem">
+            <a href="bookingsnapshotlineitem.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BookingSnapshotLineItem
             </a>
         </li>
         <li  title="DiscountItem">
@@ -368,6 +378,41 @@
         <li  title="BookAndLearnAgencyCompany">
             <a href="bookandlearnagencycompany.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 BookAndLearnAgencyCompany
+            </a>
+        </li>
+        <li  title="BookingSnapshot">
+            <a href="bookingsnapshot.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BookingSnapshot
+            </a>
+        </li>
+        <li  title="BookingSnapshotLineItemAccommodation">
+            <a href="bookingsnapshotlineitemaccommodation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BookingSnapshotLineItemAccommodation
+            </a>
+        </li>
+        <li  title="BookingSnapshotLineItemCourse">
+            <a href="bookingsnapshotlineitemcourse.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BookingSnapshotLineItemCourse
+            </a>
+        </li>
+        <li  title="BookingSnapshotLineItemFee">
+            <a href="bookingsnapshotlineitemfee.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BookingSnapshotLineItemFee
+            </a>
+        </li>
+        <li  title="BookingSnapshotLineItemPackage">
+            <a href="bookingsnapshotlineitempackage.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BookingSnapshotLineItemPackage
+            </a>
+        </li>
+        <li  title="BookingSnapshotLineItemPromotion">
+            <a href="bookingsnapshotlineitempromotion.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BookingSnapshotLineItemPromotion
+            </a>
+        </li>
+        <li  title="BookingSnapshotLineItemService">
+            <a href="bookingsnapshotlineitemservice.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                BookingSnapshotLineItemService
             </a>
         </li>
         <li  title="BooleanResult">
@@ -593,6 +638,11 @@
         <li class="slds-is-active" title="Invoice">
             <a href="invoice.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Invoice
+            </a>
+        </li>
+        <li  title="InvoiceInstallment">
+            <a href="invoiceinstallment.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                InvoiceInstallment
             </a>
         </li>
         <li  title="InvoiceItem">
@@ -2238,7 +2288,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Invoice</span> {</li><li></li><li><span class="tab"><span class="meta">invoiceId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">externalId</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">invoiceTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">ownerId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">studentId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">studentNationalityId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">studentMinAge</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">studentMaxAge</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">partnershipId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">invoiceStatusId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">invoicePaymentStatusId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">isOverdue</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">notes</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">viewed</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">issued</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">expires</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">paymentCurrencyId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">depositCurrencyId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">depositAmount</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">depositIsPercentage</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">depositDateDue</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">depositIsRequired</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">languageId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">obscuredId</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">createdByUserId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">lastUpdatedByUserId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">modified</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">invoiceFiles</span>: [<a class="support type" href="file.doc.html">File</a>] </span></li><li></li><li><span class="tab"><span class="meta">rawItems</span>: [<a class="support type" href="invoiceitem.doc.html">InvoiceItem</a>] </span></li><li></li><li><span class="tab"><span class="meta">invoicePayments</span>: [<a class="support type" href="invoicepayment.doc.html">InvoicePayment</a>] </span></li><li></li><li><span class="tab"><span class="meta">invoiceStatus</span>: <a class="support type" href="invoicestatus.doc.html">InvoiceStatus</a> </span></li><li></li><li><span class="tab"><span class="meta">invoiceType</span>: <a class="support type" href="invoicetype.doc.html">InvoiceType</a> </span></li><li></li><li><span class="tab"><span class="meta">paymentCurrency</span>: <a class="support type" href="currency.doc.html">Currency</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">Invoice</span> {</li><li></li><li><span class="tab"><span class="meta">invoiceId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">externalId</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">invoiceTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">ownerId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">studentId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">studentNationalityId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">studentMinAge</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">studentMaxAge</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">partnershipId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">invoiceStatusId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">invoicePaymentStatusId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">isOverdue</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">notes</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">viewed</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">issued</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">expires</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">paymentCurrencyId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">depositCurrencyId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">depositAmount</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">depositIsPercentage</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">depositDateDue</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">depositIsRequired</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">languageId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">obscuredId</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">createdByUserId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">lastUpdatedByUserId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">modified</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">invoiceFiles</span>: [<a class="support type" href="file.doc.html">File</a>] </span></li><li></li><li><span class="tab"><span class="meta">rawItems</span>: [<a class="support type" href="invoiceitem.doc.html">InvoiceItem</a>] </span></li><li></li><li><span class="tab"><span class="meta">invoicePayments</span>: [<a class="support type" href="invoicepayment.doc.html">InvoicePayment</a>] </span></li><li></li><li><span class="tab"><span class="meta">invoiceStatus</span>: <a class="support type" href="invoicestatus.doc.html">InvoiceStatus</a> </span></li><li></li><li><span class="tab"><span class="meta">invoiceType</span>: <a class="support type" href="invoicetype.doc.html">InvoiceType</a> </span></li><li></li><li><span class="tab"><span class="meta">paymentCurrency</span>: <a class="support type" href="currency.doc.html">Currency</a> </span></li><li></li><li><span class="tab"><span class="meta">invoiceInstallments</span>: [<a class="support type" href="invoiceinstallment.doc.html">InvoiceInstallment</a>] </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
