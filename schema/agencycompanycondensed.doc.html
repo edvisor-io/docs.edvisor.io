@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>OfferingPriceDerived</title>
+    <title>AgencyCompanyCondensed</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -290,7 +290,7 @@
                 AgencyCompany
             </a>
         </li>
-        <li  title="AgencyCompanyCondensed">
+        <li class="slds-is-active" title="AgencyCompanyCondensed">
             <a href="agencycompanycondensed.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 AgencyCompanyCondensed
             </a>
@@ -825,7 +825,7 @@
                 OfferingPrice
             </a>
         </li>
-        <li class="slds-is-active" title="OfferingPriceDerived">
+        <li  title="OfferingPriceDerived">
             <a href="offeringpricederived.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 OfferingPriceDerived
             </a>
@@ -2286,7 +2286,7 @@
     </div>
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">OfferingPriceDerived</h1>
+        <h1 class="slds-text-heading--large">AgencyCompanyCondensed</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -2298,7 +2298,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">OfferingPriceDerived</span> {</li><li></li><li><span class="tab"><span class="meta">offeringId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringPackageOptionId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">durationAmount</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">durationTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">amountIsPerDuration</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">startDate</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">endDate</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">originalPrice</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">originalPriceUsd</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">feeAmount</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">feeAmountUsd</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">currencyId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">currency</span>: <a class="support type" href="currency.doc.html">Currency</a> </span></li><li></li><li><span class="tab"><span class="meta">offeringPriceTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">fees</span>: [<a class="support type" href="feepricederived.doc.html">FeePriceDerived</a>] </span></li><li></li><li><span class="tab"><span class="meta">hasPromotion</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">bestPromotion</span>: <a class="support type" href="promotion.doc.html">Promotion</a> </span></li><li></li><li><span class="tab"><span class="meta">bestPromotionId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">bestPromotionalPrice</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">bestPromotionalPriceUsd</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">bestPromotionLineItems</span>: [<a class="support type" href="appliedpromotionlineitem.doc.html">AppliedPromotionLineItem</a>] </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">AgencyCompanyCondensed</span> {</li><li></li><li><span class="tab"><span class="meta">agencyCompanyId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">name</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">phone</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">email</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">websiteUrl</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">address</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">city</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2309,7 +2309,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="query.doc.html" title="Query - ">Query<em>null</em></a><li></ul>
+        <ul class="require-by"><li><a href="agencycondensed.doc.html" title="AgencyCondensed - ">AgencyCondensed<em>null</em></a><li></ul>
     </div>
 </section>
 <footer>
