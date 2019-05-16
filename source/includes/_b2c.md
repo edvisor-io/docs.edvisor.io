@@ -266,7 +266,17 @@ A users flow through the application can be tracked by passing the optional `gaT
 | `/course-registration`  | Filling out the registration information                                       |
 | `/thank-you`            | User has completed the entire app flow                                         |
 
-
+### GA User Id
+```javascript
+// retrieve the gaUserId and use it to initialize the app
+ga(function(tracker) {
+  Edvisor.widgets.CourseSearchApp.newInstance().render({
+    gaUserId: tracker.get('clientId'),
+    // rest of configuration
+});
+```
+It is possible to associate app users with students in the Edvisor database. To use this feature, you must retrieve the `gaUserId` from the browser's cookies, and use this value to initialize the app.
+The `gaUserId` and `gaTrackingId` are stored alongside student information as `metadata`, and can be queried via the Edvisor Graphql API.
 
 ### Google Place Id's
 
