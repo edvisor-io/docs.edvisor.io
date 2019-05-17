@@ -199,7 +199,7 @@ Agreement objects have three attributes:
 - `required`: determines whether or not the quote process can be completed without checking the agreement checkbox
 - `customPropertyFieldId`: is the customPropertyFieldId of the custom property created through the Edvisor app to support the custom agreement
 
-For example, to add two custom agreements to the app, you would first create custom properties with ids of `'promotion'` and `'new-terms'`. Next you would add an agreements object to the app configuration as shown in the example to the right.
+For example, to add two custom agreements to the app, you would first create custom properties with ids of `'promotion'` and `'new-terms'`. The custom properties must be of type `dropdown`, and have values `Yes` and `No`. Next you would add an agreements object to the app configuration as shown in the example to the right.
 
 
 ---
