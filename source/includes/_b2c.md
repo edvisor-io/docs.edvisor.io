@@ -162,7 +162,19 @@ requirePhoneNumber | `true`                                                  | B
         studentNationality: 'ca',
         searchBySchool: false,
         requireStudentCurrentCountry: true,
-        gaTrackingId: 'UA-107862751-1'
+        gaTrackingId: 'UA-107862751-1',
+        agreements: [
+          {
+            customPropertyFieldId: 'promotion',
+            label: 'Do you agree to get promotions?',
+            required: false
+          },
+          {
+            customPropertyFieldId: 'new-terms',
+            label: 'We work with authorised resellers to offer you advice and support. Please confirm that you are happy for us to share your details',
+            required: true
+          }
+        ]
       })
     })()
   </script>
@@ -172,6 +184,23 @@ requirePhoneNumber | `true`                                                  | B
 ### Optional phone number usage
 
 The search app can be configured to make the phone number input optional when capturing the student information. If the flag `requirePhoneNumber` is set to false we can also capture information on whether the student would like to be contacted by phone. In order to do so, the agency must configure a custom property to capture the student's preference. In the Edvisor app, under the settings for offices, a new custom property must be added with the following key: `contact-by-phone`. The field must be a dropdown with possible values of `Yes` and `No` (ensure case matches). With this setup, when the student gets to the final step of submitting the quote, there will be an additional checkbox prompting them on their preference on whether they would like to be contacted by phone. If they tick the box then the input for the phone number will appear.
+
+
+### Optional custom agreements
+
+The app can also be configured to present custom agreements to the user. There are two steps required to use custom agreements:
+
+1. Create custom properties through the Edvisor App
+2. Add an `agreements` attribute to the app configuration containing `agreement objects` with IDs corresponding to the newly created custom properties.
+
+Agreement objects have three attributes:
+
+- `label`:  defines the text that will appear next to the agreement checkbox
+- `required`: determines whether or not the quote process can be completed without checking the agreement checkbox
+- `customPropertyFieldId`: is the customPropertyFieldId of the custom property created through the Edvisor app to support the custom agreement
+
+For example, to add two custom agreements to the app, you would first create custom properties with ids of `'promotion'` and `'new-terms'`. The custom properties must be of type `dropdown`, and have values `Yes` and `No`. Next you would add an agreements object to the app configuration as shown in the example to the right.
+
 
 ---
 
@@ -237,7 +266,17 @@ A users flow through the application can be tracked by passing the optional `gaT
 | `/course-registration`  | Filling out the registration information                                       |
 | `/thank-you`            | User has completed the entire app flow                                         |
 
-
+### GA User Id
+```javascript
+// retrieve the gaUserId and use it to initialize the app
+ga(function(tracker) {
+  Edvisor.widgets.CourseSearchApp.newInstance().render({
+    gaUserId: tracker.get('clientId'),
+    // rest of configuration
+});
+```
+It is possible to associate app users with students in the Edvisor database. To use this feature, you must retrieve the `gaUserId` from the browser's cookies, and use this value to initialize the app.
+The `gaUserId` and `gaTrackingId` are stored alongside student information as `metadata`, and can be queried via the Edvisor Graphql API.
 
 ### Google Place Id's
 
