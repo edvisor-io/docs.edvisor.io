@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="./styles/graphdoc.css" />
-    <title>SchoolFee</title>
+    <title>StudentQuoteOptionPaymentPlanFlexibleInstallment</title>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./assets/code.css" /><link type="text/css" rel="stylesheet" href="./assets/require-by.css" />
 </head>
 <body class="slds-scrollable--y">
@@ -1250,7 +1250,7 @@
                 SchoolDurationTypeDefinition
             </a>
         </li>
-        <li class="slds-is-active" title="SchoolFee">
+        <li  title="SchoolFee">
             <a href="schoolfee.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 SchoolFee
             </a>
@@ -1465,7 +1465,7 @@
                 StudentQuoteOptionPaymentPlanDiscount
             </a>
         </li>
-        <li  title="StudentQuoteOptionPaymentPlanFlexibleInstallment">
+        <li class="slds-is-active" title="StudentQuoteOptionPaymentPlanFlexibleInstallment">
             <a href="studentquoteoptionpaymentplanflexibleinstallment.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 StudentQuoteOptionPaymentPlanFlexibleInstallment
             </a>
@@ -2476,7 +2476,7 @@
     </div>
     <div class="container">
         <p class="slds-text-title--caps slds-text-color--weak">OBJECT</p>
-        <h1 class="slds-text-heading--large">SchoolFee</h1>
+        <h1 class="slds-text-heading--large">StudentQuoteOptionPaymentPlanFlexibleInstallment</h1>
         <div class="slds-text-body--regular"></div>
     </div>
 </section>
@@ -2488,7 +2488,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">SchoolFee</span> {</li><li></li><li><span class="tab"><span class="meta">feeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">schoolId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">feeTypeId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">currencyId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">isAppliedOnce</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">appliesToAllCourses</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">appliesToAllAccommodations</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">appliesToAllServices</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">appliesToAllPackages</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">isVisible</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">isGlobal</span>: <a class="support type" href="boolean.doc.html">Boolean</a> </span></li><li></li><li><span class="tab"><span class="meta">defaultLanguageId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">modified</span>: <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">feeNames</span>: [<a class="support type" href="feename.doc.html">FeeName</a>] </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageCode</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageId</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">name</span>(<span class="meta">languageCode</span>: <a class="support type" href="languageenum.doc.html">LanguageEnum</a>, <span class="meta">languageId</span>: <a class="support type" href="int.doc.html">Int</a>): <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">feeDescriptions</span>: [<a class="support type" href="feedescription.doc.html">FeeDescription</a>] </span></li><li></li><li><span class="tab"><span class="comment line"># Arguments</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageCode</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="comment line">#   <strong>languageId</strong>: [<strong>Not documented</strong>]</span></span></li><li><span class="tab"><span class="meta">description</span>(<span class="meta">languageCode</span>: <a class="support type" href="languageenum.doc.html">LanguageEnum</a>, <span class="meta">languageId</span>: <a class="support type" href="int.doc.html">Int</a>): <a class="support type" href="string.doc.html">String</a> </span></li><li></li><li><span class="tab"><span class="meta">feePrices</span>: [<a class="support type" href="feeprice.doc.html">FeePrice</a>] </span></li><li></li><li><span class="tab"><span class="meta">feeType</span>: <a class="support type" href="feetype.doc.html">FeeType</a> </span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">type</span> <span class="identifier">StudentQuoteOptionPaymentPlanFlexibleInstallment</span> {</li><li></li><li><span class="tab"><span class="meta">studentQuoteOptionPaymentPlanFlexibleInstallmentId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">studentQuoteOptionPaymentPlanId</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">numberOfInstallments</span>: <a class="support type" href="int.doc.html">Int</a> </span></li><li></li><li><span class="tab"><span class="meta">interest</span>: <a class="support type" href="float.doc.html">Float</a> </span></li><li></li><li><span class="tab"><span class="meta">result</span>: <a class="support type" href="currencyandamount.doc.html">CurrencyAndAmount</a> </span></li><li></li><li><span class="tab"><span class="meta">created</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">modified</span>: <a class="support type" href="datetime.doc.html">DateTime</a> </span></li><li></li><li><span class="tab"><span class="meta">currency</span>: <a class="support type" href="currency.doc.html">Currency</a> </span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
@@ -2499,7 +2499,7 @@
             </a>
             Require by
         </h2>
-        <ul class="require-by"><li><a href="mutation.doc.html" title="Mutation - ">Mutation<em>null</em></a><li></ul>
+        <ul class="require-by"><li><a href="studentquoteoptionpaymentplan.doc.html" title="StudentQuoteOptionPaymentPlan - ">StudentQuoteOptionPaymentPlan<em>null</em></a><li></ul>
     </div>
 </section>
 <footer>
