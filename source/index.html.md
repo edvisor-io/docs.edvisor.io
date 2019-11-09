@@ -26,7 +26,7 @@ includes:
   - web2leads/student/maptofield
   - web2leads/student/nationality
   - web2leads/student/customfield
-  - b2c
+  # - b2c
 
 search: true
 ---
