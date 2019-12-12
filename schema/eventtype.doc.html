@@ -25,14 +25,14 @@
 <div class="slds-grid slds-grid--vertical slds-navigation-list--vertical">
     <h4 class="slds-text-title--caps slds-p-around--medium">Schema</h4>
     <ul>
-        <li  title="Query">
-            <a href="query.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Query
+        <li  title="RootQueryType">
+            <a href="rootquerytype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RootQueryType
             </a>
         </li>
-        <li  title="Mutation">
-            <a href="mutation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                Mutation
+        <li  title="RootMutationType">
+            <a href="rootmutationtype.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                RootMutationType
             </a>
         </li>
     </ul>
@@ -1590,11 +1590,6 @@
                 TaskListResultInterface
             </a>
         </li>
-        <li  title="TimeframeOutputObject">
-            <a href="timeframeoutputobject.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
-                TimeframeOutputObject
-            </a>
-        </li>
         <li  title="Translation">
             <a href="translation.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 Translation
@@ -1745,6 +1740,11 @@
                 CreateStudentQuoteOptionServiceItemInput
             </a>
         </li>
+        <li  title="CurrencyAmountInput">
+            <a href="currencyamountinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                CurrencyAmountInput
+            </a>
+        </li>
         <li  title="CustomPropertyValueInput">
             <a href="custompropertyvalueinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 CustomPropertyValueInput
@@ -1848,6 +1848,11 @@
         <li  title="InvoiceFilter">
             <a href="invoicefilter.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 InvoiceFilter
+            </a>
+        </li>
+        <li  title="InvoicePaymentInput">
+            <a href="invoicepaymentinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                InvoicePaymentInput
             </a>
         </li>
         <li  title="LimitFilterInput">
@@ -2570,6 +2575,11 @@
                 TimeframeInputObject
             </a>
         </li>
+        <li  title="UnassignStudentsInAgencyIdFromPipelineStageInput">
+            <a href="unassignstudentsinagencyidfrompipelinestageinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
+                UnassignStudentsInAgencyIdFromPipelineStageInput
+            </a>
+        </li>
         <li  title="UpdateAgencyInput">
             <a href="updateagencyinput.doc.html" class="slds-navigation-list--vertical__action slds-text-link--reset slds-truncate">
                 UpdateAgencyInput
@@ -2673,7 +2683,7 @@
             </a>
             GraphQL Schema definition
         </h2>
-        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">enum</span> <span class="identifier">EventType</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_PUBLISH</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_SCHOOL_ACCEPTED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_SCHOOL_DECLINED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_SCHOOL_PROCESSING</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_SCHOOL_COMMENTED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_NET_INVOICE_UPLOADED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_GROSS_INVOICE_UPLOADED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_LOA_UPLOADED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_MISC_FILE_UPLOADED_BY_SCHOOL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_FORM_VALUES_CHANGED_BY_AGENCY</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_FORM_VALUES_CHANGED_BY_SCHOOL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_OFFERING_ITEMS_CHANGED_BY_SCHOOL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_SENT</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CONNECTION_INVITE_REJECTED_BY_SCHOOL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CONNECTION_INVITE_ACCEPTED_BY_SCHOOL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">INVOICE_SENT</span></span></li><li>}</li></ul></code>
+        <code class="highlight"><ul class="code" style="padding-left:42px"><li><span class="keyword operator ts">enum</span> <span class="identifier">EventType</span> {</li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">OFFERING_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CAMPUS_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">SCHOOL_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">START_DATE_TEMPLATE_DELETE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_QUOTE_PUBLISH</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_CREATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_UPDATE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_SCHOOL_ACCEPTED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_SCHOOL_DECLINED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_SCHOOL_PROCESSING</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_SCHOOL_COMMENTED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_NET_INVOICE_UPLOADED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_GROSS_INVOICE_UPLOADED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_LOA_UPLOADED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_MISC_FILE_UPLOADED_BY_SCHOOL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_FORM_VALUES_CHANGED_BY_AGENCY</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_FORM_VALUES_CHANGED_BY_SCHOOL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_OFFERING_ITEMS_CHANGED_BY_SCHOOL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">STUDENT_ENROLLMENT_SENT</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CONNECTION_INVITE_REJECTED_BY_SCHOOL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">CONNECTION_INVITE_ACCEPTED_BY_SCHOOL</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">INVOICE_SENT</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">INVOICE_PAYMENT_MADE</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">INVOICE_UPDATED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">INVOICE_CREATED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">INVOICE_DELETED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">INVOICE_DUPLICATED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">INVOICE_ATTACHMENT_UPLOADED</span></span></li><li><span class="tab"></span></li><li><span class="tab"><span class="meta">INVOICE_PAYMENT_REVERTED</span></span></li><li>}</li></ul></code>
     </div>
 </section>
 <section>
