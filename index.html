@@ -370,27 +370,48 @@ to send the webhook once every 15 minutes for up to 3 days. </p>
 
           <h1 id="api">API</h1>
 
-<p>You can view the full API documentation for our <a href='schema/'>GraphQL API here</a>. </p>
+<p>To access our API, please contact us at <a href='mailto:support@edvisor.io'>support@edvisor.io</a>.</p>
 
+<blockquote>
 <p>Please note that we are currently using GraphQL which is quite different from typical RESTful API&rsquo;s. To learn
 more about how to interact with a GraphQL API, please checkout <a href='http://graphql.org/'>http://graphql.org/</a>.</p>
+</blockquote>
 
-<h3 id="queries">Queries</h3>
+<h2 id="api-reference">API Reference</h2>
 
-<p>A full list of all the available queries can be found here: <a href='http://docs.edvisor.io/schema/query.doc.html'>http://docs.edvisor.io/schema/query.doc.html</a></p>
+<p><a href='schema/'>Graphql Schema</a></p>
 
-<p>To access our API, please contact us at <a href='mailto:support@edvisor.io'>support@edvisor.io</a>.</p>
+<p>This document only contains the inputs and objects of our api.
+To explore the queries and mutations, use GraphQL Playground&rsquo;s <em>DOCS</em> section.</p>
 
 <h2 id="graphql-playground">GraphQL Playground</h2>
 
-<p>You can test drive your GraphQL queries and mutations directly from here: <a href='https://www.graphqlbin.com/' target='_blank'>https://www.graphqlbin.com/</a>. When it prompts you to enter the endpoint URL please use <code class="prettyprint">https://api.edvisor.io/graphql</code></p>
+<p>GraphQL Playground is a web tool to explore Edvisor api and test drive queries and mutations.</p>
+
+<p><a href='https://www.graphqlbin.com/' target='_blank'>https://www.graphqlbin.com/</a></p>
+
+<p>Use</p>
+<pre class="highlight plaintext"><code>https://api.edvisor.io/graphql
+</code></pre>
+
+<p>as the endpoint URL</p>
 
 <p><img src='images/step1.gif'>
 <img src='images/step2.gif'></p>
 
 <aside class="notice">
 Please remember to set the &ldquo;Authorization&rdquo; header with your API key.
+
+&ldquo;`
+{
+  &quot;Authorization&rdquo;: &ldquo;Bearer your-api-key&rdquo;
+}
+&ldquo;`
 </aside>
+
+          <h1 id="api-guide">API Guide</h1>
+
+<p>Detailed explanation and examples to using Edvisor Api</p>
 
 <h2 id="accessing-the-price-of-a-course">Accessing the price of a course</h2>
 
