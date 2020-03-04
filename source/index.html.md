@@ -14,6 +14,7 @@ includes:
   - authentication
   - webhooks
   - api
+  - api-guide
   - errors
   - web2leads/web2leads
   - web2leads/form
