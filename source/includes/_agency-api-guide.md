@@ -1,6 +1,6 @@
-# API Guide
+# Agency API Guide
 
-Detailed explanation and examples to using Edvisor Api
+Detailed explanation and examples to using Edvisor Api as an Agency
 
 ## Accessing the price of a course
 

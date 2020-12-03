@@ -32,11 +32,10 @@ as the endpoint URL
 <img src='/images/step2.gif'>
 
 <aside class="notice">
-Please remember to set the "Authorization" header with your API key.
-
-```
+Please remember to set the "Authorization" header with your API key.<br/>
+<code>
 {
   "Authorization": "Bearer your-api-key"
 }
-```
+</code>
 </aside>
