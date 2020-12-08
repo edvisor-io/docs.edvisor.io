@@ -402,18 +402,17 @@ To explore the queries and mutations, use GraphQL Playground&rsquo;s DOCS sectio
 <img src='images/step2.gif'></p>
 
 <aside class="notice">
-Please remember to set the &ldquo;Authorization&rdquo; header with your API key.
-
-&ldquo;`
+Please remember to set the &ldquo;Authorization&rdquo; header with your API key.<br/>
+<code>
 {
-  &quot;Authorization&rdquo;: &ldquo;Bearer your-api-key&rdquo;
+  "Authorization": "Bearer your-api-key"
 }
-&ldquo;`
+</code>
 </aside>
 
-          <h1 id="api-guide">API Guide</h1>
+          <h1 id="agency-api-guide">Agency API Guide</h1>
 
-<p>Detailed explanation and examples to using Edvisor Api</p>
+<p>Detailed explanation and examples to using Edvisor Api as an Agency</p>
 
 <h2 id="accessing-the-price-of-a-course">Accessing the price of a course</h2>
 
@@ -1190,6 +1189,12 @@ objects, so you can update multiple currencies with one simple request. </p>
   --data-binary <span class="s1">'{"query":"mutation updateCurrencyRate($input: [AgencyCompanyCurrencyRateInput]){\n  upsertAgencyCompanyCurrencyRates(input: $input) {\n    agencyCompanyId\n    fromCurrencyId\n    toCurrencyId\n    rate\n    created\n    modified\n  }\n}","variables":{"input":[{"fromCurrencyId":8,"toCurrencyCode":"XPF","rate":69.8},{"fromCurrencyId":8,"toCurrencyId":154,"rate":42.69},{"fromCurrencyId":8,"toCurrencyId":155,"rate":19.69}]},"operationName":"updateCurrencyRate"}'</span> 
   --compressed
 </code></pre>
+
+          <h1 id="school-api-guide">School API Guide</h1>
+
+<p>Detailed explanation and examples to using Edvisor Api as a School</p>
+
+<h2 id="to-do">TO DO</h2>
 
           <h1 id="errors">Errors</h1>
 
