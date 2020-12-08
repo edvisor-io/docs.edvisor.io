@@ -639,3 +639,26 @@ img[alt="img"] {
   max-width: 300px;
 }
 
+// Force code (<pre>) into the center column
+.center-column {
+  @extend %code-font;
+  white-space: pre;
+
+  float: left !important;
+  background-color: #f0f0f0 !important;
+  color: black !important;
+  clear: none !important;
+  margin-right: $examples-width !important;
+  width: 100% !important;     // May need to adjust this
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+  display: block;
+}
+
+button.copy-curl {
+  display: block;
+  margin: 10px 0;
+}
+
+.hidden {
+  display: none;
+}
